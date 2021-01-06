@@ -1,0 +1,17 @@
+.user-rank-header {
+  display: flex;
+  padding: 0 10px;
+  height: 3em;
+  background-color: #F1BA35;
+  margin-bottom: 4px;
+
+}
+.user-rank-header p {
+  align-self: center;
+  color: white;
+  font-size: 19px;
+}
+.user-rank-wrapper {
+  height: 320px;
+  background-color: rgba(233, 196, 106, 0.1);
+}

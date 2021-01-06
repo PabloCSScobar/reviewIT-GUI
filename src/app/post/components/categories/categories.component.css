@@ -1,0 +1,18 @@
+.categories-header {
+  display: flex;
+  padding: 0 10px;
+  height: 3em;
+  background-color: #264653;
+  margin-bottom: 4px;
+
+}
+.categories-header p {
+  align-self: center;
+  color: white;
+  font-size: 19px;
+}
+.categories-wrapper {
+  height: 320px;
+  background-color: #264653;
+  margin-bottom: 15px;
+}

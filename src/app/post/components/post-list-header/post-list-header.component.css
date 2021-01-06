@@ -1,0 +1,13 @@
+.posts-header {
+  display: flex;
+  flex:1;
+  align-content: stretch;
+  height: 4em;
+  background-color: #2A9D8F;
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+h2 {
+  color: white;
+  font-size: 25px;
+}
