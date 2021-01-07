@@ -1,9 +1,6 @@
+@import 'assets/reset.css';
+
 * {
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
-}
-body {
-  /* width: 100vw; */
-  margin: 0;
-  padding: 0;
 }
