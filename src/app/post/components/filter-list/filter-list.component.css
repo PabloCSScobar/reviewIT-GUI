@@ -9,4 +9,14 @@
 
 .filter {
   align-self: center;
+  padding: 4px 20px;
+  border-radius: 9px;
+  cursor: pointer;
+}
+.filter.active {
+  background-color: #2a9d8f;
+  color: white;
+}
+.filter:hover:not(.active) {
+  background-color: #2a9d902f;
 }
