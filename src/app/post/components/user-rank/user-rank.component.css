@@ -2,9 +2,8 @@
   display: flex;
   padding: 0 10px;
   height: 3em;
-  background-color: #F1BA35;
+  background-color: #f1ba35;
   margin-bottom: 4px;
-
 }
 .user-rank-header p {
   align-self: center;
