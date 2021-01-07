@@ -1,5 +1,47 @@
-nav {
+header {
   height: 4.25em;
-  width: 100%;
   background-color: #264653;
+  width: 100%;
+}
+nav {
+  width: 1024px;
+  /* height: 100%; */
+  margin: 0 auto;
+  display: flex;
+  padding-top: 5px;
+  align-items: baseline;
+}
+
+.logo {
+  padding:0 2px;
+}
+.logo h1 {
+  margin:0;
+  padding: 0;
+  color: white;
+  font-size: 21px;
+  font-weight: 300;
+}
+.logo-bold {
+  font-weight: 500;
+}
+.menu {
+  flex-grow: 1;
+  display: flex;
+  margin-left: 80px;
+}
+.menu-entry a{
+  margin-right: 50px;
+  text-decoration: none;
+  color: white;
+  font-weight: 300;
+}
+.user-info {
+  width: 58px;
+  height: 58px;
+  background-color: #e9c46a;
+  border-radius: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
