@@ -1,7 +1,7 @@
 .posts-header {
   display: flex;
   flex:1;
-  align-content: stretch;
+  align-items: center;
   height: 4em;
   background-color: #2A9D8F;
   padding-left: 20px;
