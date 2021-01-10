@@ -29,3 +29,49 @@
 .activity-time {
   font-weight: 700;
 }
+
+.post-wrapper {
+  display: flex;
+}
+.author-info {
+  width: 130px;
+  background: rgba(42, 157, 143, 0.1);
+}
+.project-links-wrapper {
+  margin: 10px 0;
+}
+.page-link, .repo-link {
+  font-size: 12px;
+  color: black;
+  padding: 0 5px;
+}
+.project-link {
+  text-decoration: none;
+  color: #264653;
+  font-weight: 500;
+}
+.project-link:hover {
+  text-decoration: underline;
+  color: #264653e7;
+}
+.post-details {
+  max-width: calc(100% - 130px);
+  padding: 3px 5px;
+}
+.post-description {
+  margin: 15px 5px;
+}
+.post-tags {
+  margin: 15px 5px;
+  display: flex;
+}
+.post-tag {
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 2px 5px;
+  background-color: #e76f51;
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-right: 10px;
+}
