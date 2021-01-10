@@ -14,13 +14,15 @@ import { UserRankComponent } from './components/user-rank/user-rank.component';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { PostListHeaderComponent } from './components/post-list-header/post-list-header.component';
 import { PostComponent } from './components/post/post.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   declarations: [HeaderComponent, ContainerComponent, FooterComponent, MainComponent, RightbarComponent, FilterListComponent, SearchComponent, CategoriesComponent, UserRankComponent, PostListComponent, PostListHeaderComponent, PostComponent],
   imports: [
     CommonModule,
-    PostRoutingModule
+    PostRoutingModule,
+    SharedModule
   ],
   exports: [
     ContainerComponent
