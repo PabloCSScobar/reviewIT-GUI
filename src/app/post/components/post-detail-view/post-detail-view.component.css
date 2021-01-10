@@ -1,0 +1,31 @@
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  height: 4em;
+  padding: 0 20px;
+  background-color: #2a9d8f;
+  align-items: center;
+}
+.post-title {
+  color: white;
+  font-size: 25px;
+  font-weight: 700;
+}
+.rank-stars img {
+  width: 25px;
+  height: 25px;
+}
+.rank {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.author-activity-details {
+  font-size: 11px;
+  margin: 0 15px;
+}
+.activity-time {
+  font-weight: 700;
+}

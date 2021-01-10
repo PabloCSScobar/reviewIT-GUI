@@ -15,10 +15,14 @@ import { PostListComponent } from './components/post-list/post-list.component';
 import { PostListHeaderComponent } from './components/post-list-header/post-list-header.component';
 import { PostComponent } from './components/post/post.component';
 import { SharedModule } from '../shared/shared.module';
+import { PostDetailViewComponent } from './components/post-detail-view/post-detail-view.component';
+import { AnswerListComponent } from './components/answer-list/answer-list.component';
+import { AnswerComponent } from './components/answer/answer.component';
+import { PostUserComponent } from './components/post-user/post-user.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, ContainerComponent, FooterComponent, MainComponent, RightbarComponent, FilterListComponent, SearchComponent, CategoriesComponent, UserRankComponent, PostListComponent, PostListHeaderComponent, PostComponent],
+  declarations: [HeaderComponent, ContainerComponent, FooterComponent, MainComponent, RightbarComponent, FilterListComponent, SearchComponent, CategoriesComponent, UserRankComponent, PostListComponent, PostListHeaderComponent, PostComponent, PostDetailViewComponent, AnswerListComponent, AnswerComponent, PostUserComponent],
   imports: [
     CommonModule,
     PostRoutingModule,
