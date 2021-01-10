@@ -1,0 +1,28 @@
+
+.user-avatar {
+  width: 58px;
+  height: 58px;
+  background-color: #e9c46a;
+  border-radius: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+  font-size: 29px;
+}
+.user-wrapper {
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.username {
+  margin-bottom: 3px;
+  font-size: 14px;
+}
+.user-reputation {
+  font-size: 12px;
+}
+
