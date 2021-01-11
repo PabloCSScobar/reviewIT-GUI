@@ -19,10 +19,11 @@ import { PostDetailViewComponent } from './components/post-detail-view/post-deta
 import { AnswerListComponent } from './components/answer-list/answer-list.component';
 import { AnswerComponent } from './components/answer/answer.component';
 import { PostUserComponent } from './components/post-user/post-user.component';
+import { CategoryReviewComponent } from './components/category-review/category-review.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, ContainerComponent, FooterComponent, MainComponent, RightbarComponent, FilterListComponent, SearchComponent, CategoriesComponent, UserRankComponent, PostListComponent, PostListHeaderComponent, PostComponent, PostDetailViewComponent, AnswerListComponent, AnswerComponent, PostUserComponent],
+  declarations: [HeaderComponent, ContainerComponent, FooterComponent, MainComponent, RightbarComponent, FilterListComponent, SearchComponent, CategoriesComponent, UserRankComponent, PostListComponent, PostListHeaderComponent, PostComponent, PostDetailViewComponent, AnswerListComponent, AnswerComponent, PostUserComponent, CategoryReviewComponent],
   imports: [
     CommonModule,
     PostRoutingModule,
