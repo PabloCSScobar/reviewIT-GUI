@@ -1,0 +1,11 @@
+.answers-header {
+  display: flex;
+  justify-content: space-between;
+  height: 3em;
+  padding: 0 20px;
+  background-color: #264653;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+}
