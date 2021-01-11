@@ -1,0 +1,15 @@
+.user-count-wrapper {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 80px;
+  background-color: rgb(250, 250, 250);
+  padding: 10px;
+}
+.usr-count {
+  color: #2A9D8F;
+  font-weight: 700;
+}
+

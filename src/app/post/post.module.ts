@@ -20,10 +20,11 @@ import { AnswerListComponent } from './components/answer-list/answer-list.compon
 import { AnswerComponent } from './components/answer/answer.component';
 import { PostUserComponent } from './components/post-user/post-user.component';
 import { CategoryReviewComponent } from './components/category-review/category-review.component';
+import { LoggedUsersComponent } from './components/logged-users/logged-users.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, ContainerComponent, FooterComponent, MainComponent, RightbarComponent, FilterListComponent, SearchComponent, CategoriesComponent, UserRankComponent, PostListComponent, PostListHeaderComponent, PostComponent, PostDetailViewComponent, AnswerListComponent, AnswerComponent, PostUserComponent, CategoryReviewComponent],
+  declarations: [HeaderComponent, ContainerComponent, FooterComponent, MainComponent, RightbarComponent, FilterListComponent, SearchComponent, CategoriesComponent, UserRankComponent, PostListComponent, PostListHeaderComponent, PostComponent, PostDetailViewComponent, AnswerListComponent, AnswerComponent, PostUserComponent, CategoryReviewComponent, LoggedUsersComponent],
   imports: [
     CommonModule,
     PostRoutingModule,
