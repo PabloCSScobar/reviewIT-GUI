@@ -1,0 +1,17 @@
+.answer-wrapper {
+  display: flex;
+  width: 100%;
+  border-bottom: 8px solid #264653;
+}
+.author-info {
+  width: 130px;
+  background: rgba(42, 157, 143, 0.1);
+}
+.answer-details {
+  width: calc(100% - 130px);
+  padding: 3px 5px;
+}
+
+.answer-description {
+  margin: 15px 5px;
+}
