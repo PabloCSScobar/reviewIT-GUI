@@ -12,7 +12,15 @@
   font-size: 19px;
 }
 .categories-wrapper {
-  height: 320px;
   background-color: #264653;
   margin-bottom: 15px;
+  color: white;
+}
+.category-row {
+  display: flex;
+}
+.category {
+  width: 100%;
+  height: 60px;
+  border: 1px solid #1b3641;
 }
