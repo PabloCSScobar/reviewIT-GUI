@@ -55,7 +55,7 @@
   color: #264653e7;
 }
 .post-details {
-  max-width: calc(100% - 130px);
+  width: calc(100% - 130px);
   padding: 3px 5px;
 }
 .post-description {
