@@ -1,0 +1,44 @@
+.answer-header {
+  margin-top: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  padding: 3px;
+}
+.answer-header h4 {
+  font-size: 16px;
+  color: #E76F51;
+  font-weight: 700;
+}
+.rank-wrapper {
+  display: flex;
+  margin-bottom: auto;
+  font-weight: 300;
+  font-size: 14px;
+}
+.stars {
+  margin-right: 4px;
+}
+.stars img {
+  width: 13px;
+  height: 13px;
+}
+.rank {
+  margin-top: 2 px;
+}
+.adv-icon {
+  margin-right: 3px;
+}
+.adv-icon img {
+  width: 20px;
+  height: 18px;
+}
+.review-advantages, .review-disadvantages {
+  margin-top: 8px;
+  margin-left: 3px;
+}
+.adv-wrapper {
+  display: flex;
+  margin-bottom: 10px;
+}
