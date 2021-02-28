@@ -12,14 +12,35 @@ const routes: Routes = [
       {
         path: 'list',
         component: PostListComponent,
-
+        pathMatch: 'full',
       },
       {
         path: 'post',
         component: PostDetailViewComponent,
+        pathMatch: 'full',
+      },
+      {
+        path: '**',
+        redirectTo: '/list',
+        pathMatch: 'full',
       },
     ]
-  }
+  },
+  // {
+  //   path: 'post',
+  //   redirectTo: '/post',
+  //   pathMatch: 'full',
+  // },
+  // {
+  //   path: 'list',
+  //   redirectTo: '/list',
+  //   pathMatch: 'full',
+  // },
+  // {
+  //   path: '**',
+  //   redirectTo: '/post',
+  //   pathMatch: 'full',
+  // },
 ];
 
 @NgModule({
