@@ -20,6 +20,11 @@ const routes: Routes = [
         pathMatch: 'full',
       },
       {
+        path: 'post/:id',
+        component: PostDetailViewComponent,
+        pathMatch: 'full',
+      },
+      {
         path: '**',
         redirectTo: '/list',
         pathMatch: 'full',
@@ -44,7 +49,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {enableTracing: true})],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

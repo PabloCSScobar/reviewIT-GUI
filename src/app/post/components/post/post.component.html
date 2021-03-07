@@ -24,7 +24,7 @@
     </div>
   </div>
   <div class="post-details">
-    <div class="post-title">{{post.title}}</div>
+    <div class="post-title"><a [routerLink]="['/post/', post.id]">{{post.title}}</a></div>
     <div class="project-links-wrapper">
       <div class="page-link">Link do strony: <a class="project-link" href="#">{{post.page_link}}</a></div>
       <div class="repo-link">Link do repozytorium: <a class="project-link" href="#">{{post.repo_link}}</a></div>

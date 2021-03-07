@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { PostDetail } from '../../models/post';
 import { PostService } from '../../services/post.service';
 
@@ -9,14 +11,25 @@ import { PostService } from '../../services/post.service';
 })
 export class PostDetailViewComponent implements OnInit {
 
-  constructor(private postService: PostService) { }
+  constructor(
+    private postService: PostService,
+    private route: ActivatedRoute
+    ) { }
+
+  routeSub: Subscription;
   post: PostDetail;
 
   getPost() {
     this.postService.getPost().subscribe(post => this.post = post);
   }
+
+  getPostId() {
+    this.routeSub = this.route.params.subscribe( params => console.log(params['id']))
+  }
+
   ngOnInit(): void {
     this.getPost();
+    this.getPostId();
   }
 
 }

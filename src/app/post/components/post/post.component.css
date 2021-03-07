@@ -73,8 +73,16 @@
 .post-title {
   font-size: 18px;
   color: #2a9d8f;
- padding-bottom: 2px;
+  padding-bottom: 2px;
   font-weight: 700;
+}
+.post-title a {
+  color: #2a9d8f;
+  text-decoration: none;
+}
+.post-title a:hover {
+  color: #38c0b0;
+  text-decoration: none;
 }
 .page-link, .repo-link {
   font-size: 12px;
