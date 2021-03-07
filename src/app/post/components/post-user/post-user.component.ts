@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { PostUser } from '../../models/post-user';
 
 @Component({
   selector: 'app-post-user',
@@ -8,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class PostUserComponent implements OnInit {
 
   constructor() { }
+
+  @Input() user: PostUser;
+
 
   ngOnInit(): void {
   }
