@@ -31,7 +31,7 @@
     </div>
     <div class="post-last-activity">
       <span class="activity-type">Odpowiedź </span>udzielona
-      <span class="activity-time">10 minut </span>temu przez
+      <span class="activity-time">{{post.last_activity.timestamp | timeAgo}} </span> przez
       <span class="activity-user">{{post.last_activity.username}}</span>
     </div>
     <div class="post-tags">
