@@ -1,35 +1,56 @@
-
-<div class="post-header">
-  <div class="title-wrapper">
-    <div class="post-title"><h2>{{post.title}}</h2></div>
-    <div class="author-activity-details">Pytanie zadane <span class="activity-time">10 min</span>  temu</div>
-  </div>
-  <div class="project-rank-wrapper">
-    <div class="rank-stars">
-      <img src="assets/yellow-star.png" alt="" srcset="">
-      <img src="assets/yellow-star.png" alt="" srcset="">
-      <img src="assets/yellow-star.png" alt="" srcset="">
-      <img src="assets/yellow-star.png" alt="" srcset="">
-      <img src="assets/yellow-star.png" alt="" srcset="">
+<div *ngIf="post != null">
+  <div class="post-header">
+    <div class="title-wrapper">
+      <div class="post-title">
+        <h2>{{ post.title }}</h2>
+      </div>
+      <div class="author-activity-details">
+        Pytanie zadane
+        <span class="activity-time">{{
+          post.created_timestamp | timeAgo
+        }}</span>
+        temu
+      </div>
     </div>
-    <div class="rank">Ocena: {{post.rank}}</div>
+    <div class="project-rank-wrapper">
+      <div class="rank-stars">
+        <img src="assets/yellow-star.png" alt="" srcset="" />
+        <img src="assets/yellow-star.png" alt="" srcset="" />
+        <img src="assets/yellow-star.png" alt="" srcset="" />
+        <img src="assets/yellow-star.png" alt="" srcset="" />
+        <img src="assets/yellow-star.png" alt="" srcset="" />
+      </div>
+      <div class="rank">Ocena: {{ post.rank }}</div>
+    </div>
   </div>
+  <div class="post-wrapper">
+    <div class="author-info">
+      <app-post-user [user]="post.author"></app-post-user>
+    </div>
+    <div class="post-details">
+      <div class="project-links-wrapper">
+        <div class="page-link">
+          Link do strony:
+          <a class="project-link" href="#">{{ post.page_link }}</a>
+        </div>
+        <div class="repo-link">
+          Link do repozytorium:
+          <a class="project-link" href="#">{{ post.repo_link }}</a>
+        </div>
+      </div>
+      <div class="post-description">
+        {{ post.description }}
+      </div>
+      <div class="post-tags">
+        <div *ngFor="let category of post.categories" class="post-tag">
+          {{ category.name }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-answer-list [answers]="post.answers"></app-answer-list>
 </div>
-<div class="post-wrapper">
-  <div class="author-info">
-    <app-post-user [user]="post.author"></app-post-user>
-  </div>
-  <div class="post-details">
-    <div class="project-links-wrapper">
-      <div class="page-link">Link do strony: <a class="project-link" href="#">{{post.page_link}}</a></div>
-      <div class="repo-link">Link do repozytorium: <a class="project-link" href="#">{{post.repo_link}}</a></div>
-    </div>
-    <div class="post-description">
-      {{post.description}}
-    </div>
-    <div class="post-tags">
-      <div *ngFor="let category of post.categories" class="post-tag">{{category.name}}</div>
-    </div>
-  </div>
+<div>
+  <!-- //TODO loading -->
+  loading....
 </div>
-<app-answer-list [answers]="post.answers"></app-answer-list>
