@@ -1,0 +1,82 @@
+[
+  {
+    "rank": 1,
+    "user": {
+      "id": 1,
+      "username": "User1",
+      "reputation": 12413
+    }
+  },
+  {
+    "rank": 2,
+    "user": {
+      "id": 2,
+      "username": "User2",
+      "reputation": 10541
+    }
+  },
+  {
+    "rank": 3,
+    "user": {
+      "id": 3,
+      "username": "User3",
+      "reputation": 2401
+    }
+  },
+  {
+    "rank": 4,
+    "user": {
+      "id": 4,
+      "username": "User4",
+      "reputation": 2401
+    }
+  },
+  {
+    "rank": 5,
+    "user": {
+      "id": 5,
+      "username": "User5",
+      "reputation": 2401
+    }
+  },
+  {
+    "rank": 6,
+    "user": {
+      "id": 6,
+      "username": "User6",
+      "reputation": 2401
+    }
+  },
+  {
+    "rank": 7,
+    "user": {
+      "id": 7,
+      "username": "User7",
+      "reputation": 2401
+    }
+  },
+  {
+    "rank": 8,
+    "user": {
+      "id": 8,
+      "username": "User8",
+      "reputation": 2401
+    }
+  },
+  {
+    "rank": 9,
+    "user": {
+      "id": 9,
+      "username": "User9",
+      "reputation": 2401
+    }
+  },
+  {
+    "rank": 10,
+    "user": {
+      "id": 10,
+      "username": "User10",
+      "reputation": 2401
+    }
+  }
+]

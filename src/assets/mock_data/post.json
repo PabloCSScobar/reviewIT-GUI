@@ -1,0 +1,122 @@
+{
+  "id": 101,
+  "author": {
+    "id": 8,
+    "username": "User8",
+    "reputation": 2401
+  },
+  "created_timestamp": 1614373946,
+  "description": "Prośba o sprawdzenie mojego nowego projektu",
+  "title": "Sample Title",
+  "page_link": "www.example-project.pl",
+  "repo_link": "www.example-project.pl",
+  "rank": 4.1,
+  "number_of_answers": 4,
+  "visits": 15,
+  "has_top_answer": false,
+  "last_activity": {
+    "type": "answer",
+    "timestamp": 1614373846,
+    "user": "J@n_K0walski"
+  },
+  "categories": [
+    {
+      "id": 1,
+      "name": "SEO",
+      "rank": 4.1,
+      "number_of_answers": 3
+    },
+    {
+      "id": 2,
+      "name": "RWD",
+      "rank": 4.5,
+      "number_of_answers": 2
+    },
+    {
+      "id": 3,
+      "name": "DESIGN",
+      "rank": 4.5,
+      "number_of_answers": 2
+    }
+  ],
+  "answers": [
+    {
+      "id": 1243,
+      "author": {
+        "id": 8,
+        "username": "User8",
+        "reputation": 2401
+      },
+      "created_timestamp": 1614373946,
+      "rank": 4,
+      "is_top_answer": false,
+      "description": "Bardzo fajny projekt. Poniżej szczegółowa recenzja",
+      "reviewed_categories": [
+        {
+          "id": 3,
+          "name": "DESIGN",
+          "rank": 4,
+          "advantages": [
+            {
+              "id": 124314,
+              "description": "Dobrze dobrane kolory"
+            },
+            {
+              "id": 123312,
+              "description": "Czcionka miła dla oka"
+            }
+          ],
+          "disanvantages": [
+            {
+              "id": 1231,
+              "description": "Zbyt duże przyciski"
+            },
+            {
+              "id": 123121,
+              "description": "Zbyt dużo animacji"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 1245,
+      "author": {
+        "id": 8,
+        "username": "User9",
+        "reputation": 2401
+      },
+      "created_timestamp": 1614373946,
+      "rank": 4,
+      "is_top_answer": false,
+      "description": "Bardzo fajny projekt. Poniżej szczegółowa recenzja",
+      "reviewed_categories": [
+        {
+          "id": 3,
+          "name": "DESIGN",
+          "rank": 4,
+          "advantages": [
+            {
+              "id": 124314,
+              "description": "Dobrze dobrane kolory"
+            },
+            {
+              "id": 123312,
+              "description": "Czcionka miła dla oka"
+            }
+          ],
+          "disanvantages": [
+            {
+              "id": 1231,
+              "description": "Zbyt duże przyciski"
+            },
+            {
+              "id": 123121,
+              "description": "Zbyt dużo animacji"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
