@@ -4,9 +4,8 @@
   </div>
   <div class="answer-details">
     <div class="answer-description">
-      Ogólny opis recenzji
+      {{answer.description}}
     </div>
-    <app-category-review></app-category-review>
-    <app-category-review></app-category-review>
+    <app-category-review *ngFor="let category of answer.reviewed_categories" [category]="category"></app-category-review>
   </div>
 </div>

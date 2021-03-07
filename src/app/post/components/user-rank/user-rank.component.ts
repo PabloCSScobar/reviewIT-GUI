@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserRankNode } from '../../models/user_rank_node';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'app-user-rank',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserRankComponent implements OnInit {
 
-  constructor() { }
+  constructor(private postService: PostService) { }
+
+  users: UserRankNode[];
+
+  getTopUsers() {
+    this.postService.getTopUsers().subscribe(users => this.users = users);
+  }
+
 
   ngOnInit(): void {
+    this.getTopUsers();
   }
 
 }

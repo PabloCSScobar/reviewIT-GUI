@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PostDetail } from '../../models/post';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'app-post-detail-view',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostDetailViewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private postService: PostService) { }
+  post: PostDetail;
 
+  getPost() {
+    this.postService.getPost().subscribe(post => this.post = post);
+  }
   ngOnInit(): void {
+    this.getPost();
   }
 
 }

@@ -1,5 +1,5 @@
 <div class="answer-header">
-  <h4>DESIGN</h4>
+  <h4>{{category.name}}</h4>
   <div class="rank-wrapper">
     <div class="stars">
       <img src="assets/yellow-star.png" alt="" srcset="">
@@ -8,41 +8,23 @@
       <img src="assets/yellow-star.png" alt="" srcset="">
       <img src="assets/yellow-star.png" alt="" srcset="">
     </div>
-    <div class="rank">Ocena: 4</div>
+    <div class="rank">Ocena: {{category.rank}}</div>
   </div>
 </div>
 <div class="review-advantages">
-  <div class="adv-wrapper">
+  <div *ngFor="let adv of category.advantages" class="adv-wrapper">
     <div class="adv-icon">
       <img src="assets/check_green.png" alt="" srcset="">
     </div>
-    <div class="adv-content">Przykładowy tekst 1</div>
-  </div>
-  <div class="adv-wrapper">
-    <div class="adv-icon">
-      <img src="assets/check_green.png" alt="" srcset="">
-    </div>
-    <div class="adv-content">Przykładowy tekst 2. orem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere vulputate sem quis vulputate. Nam tincidunt rhoncus urna ut placerat. In hac habitasse platea dictumst. Aenean eget luctus nulla. Donec consectetur elit diam, ut ornare libero lacinia et. Nulla nibh sem, rutrum id ex quis, gravida posuere velit.</div>
-  </div>
-  <div class="adv-wrapper">
-    <div class="adv-icon">
-      <img src="assets/check_green.png" alt="" srcset="">
-    </div>
-    <div class="adv-content">Przykładowy tekst 3</div>
+    <div class="adv-content">{{adv.description}}</div>
   </div>
 </div>
 <div class="review-disadvantages">
-  <div class="adv-wrapper">
+  <div *ngFor="let disadv of category.disanvantages" class="adv-wrapper">
     <div class="adv-icon">
       <img src="assets/x_red.png" alt="" srcset="">
     </div>
-    <div class="adv-content">Przykładowy tekst 1</div>
-  </div>
-  <div class="adv-wrapper">
-    <div class="adv-icon">
-      <img src="assets/x_red.png" alt="" srcset="">
-    </div>
-    <div class="adv-content">Przykładowy tekst 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. </div>
+    <div class="adv-content">{{disadv.description}}</div>
   </div>
 </div>
 

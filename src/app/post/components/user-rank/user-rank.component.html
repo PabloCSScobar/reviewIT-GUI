@@ -2,54 +2,9 @@
   <p>Ranking użytkowników</p>
 </div>
 <div class="user-rank-wrapper">
-  <div class="user">
-    <span class="rank">1</span>
-    <span class="username">USER1</span>
-    <span class="reputation">13300</span>
-  </div>
-  <div class="user">
-    <span class="rank">2</span>
-    <span class="username">USER2</span>
-    <span class="reputation">9800</span>
-  </div>
-  <div class="user">
-    <span class="rank">3</span>
-    <span class="username">USER3</span>
-    <span class="reputation">6700</span>
-  </div>
-  <div class="user">
-    <span class="rank">4</span>
-    <span class="username">USER4</span>
-    <span class="reputation">5647</span>
-  </div>
-  <div class="user">
-    <span class="rank">5</span>
-    <span class="username">USER5</span>
-    <span class="reputation">3300</span>
-  </div>
-  <div class="user">
-    <span class="rank">6</span>
-    <span class="username">USER6</span>
-    <span class="reputation">2412</span>
-  </div>
-  <div class="user">
-    <span class="rank">7</span>
-    <span class="username">USER7</span>
-    <span class="reputation">2111</span>
-  </div>
-  <div class="user">
-    <span class="rank">8</span>
-    <span class="username">USER8</span>
-    <span class="reputation">1866</span>
-  </div>
-  <div class="user">
-    <span class="rank">9</span>
-    <span class="username">USER9</span>
-    <span class="reputation">1766</span>
-  </div>
-  <div class="user">
-    <span class="rank">10</span>
-    <span class="username">USER10</span>
-    <span class="reputation">1460</span>
+  <div *ngFor="let user of users" class="user">
+    <span class="rank">{{user.rank}}</span>
+    <span class="username">{{user.user.username}}</span>
+    <span class="reputation">{{user.user.reputation}}</span>
   </div>
 </div>
