@@ -1,4 +1,3 @@
-import { PostService } from '../services/post.service';
 import { Answer } from './answer';
 import { PostUser } from './post-user';
 import { PostActivity } from './post_activity';
@@ -6,7 +5,7 @@ import { PostCategory } from './post_category';
 
 export interface Post {
   id: number;
-  created_timestamp: number;
+  created: string;
   title: string;
   page_link: string;
   repo_link: string;

@@ -1,11 +1,13 @@
+import { Category } from "./category";
+
 export interface ReviewedCategory {
   id: number;
-  name: string;
+  category: Category;
   rank: number;
-  advantages: ReviewedCategoryNode[];
-  disanvantages: ReviewedCategoryNode[];
+  category_nodes: CategoryNode[];
 }
-export interface ReviewedCategoryNode {
+export interface CategoryNode {
   id: number;
   description: string;
+  answer_type: string;
 }

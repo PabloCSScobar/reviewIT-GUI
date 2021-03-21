@@ -4,7 +4,7 @@ import { ReviewedCategory } from "./reviewed_category";
 export interface Answer {
   id: number;
   author: PostUser;
-  created_timestamp: number;
+  created: string;
   rank: number;
   is_top_answer: boolean;
   description: string;
