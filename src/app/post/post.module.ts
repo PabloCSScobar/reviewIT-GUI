@@ -21,10 +21,11 @@ import { AnswerComponent } from './components/answer/answer.component';
 import { PostUserComponent } from './components/post-user/post-user.component';
 import { CategoryReviewComponent } from './components/category-review/category-review.component';
 import { LoggedUsersComponent } from './components/logged-users/logged-users.component';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, ContainerComponent, FooterComponent, MainComponent, RightbarComponent, FilterListComponent, SearchComponent, CategoriesComponent, UserRankComponent, PostListComponent, PostListHeaderComponent, PostComponent, PostDetailViewComponent, AnswerListComponent, AnswerComponent, PostUserComponent, CategoryReviewComponent, LoggedUsersComponent],
+  declarations: [HeaderComponent, ContainerComponent, FooterComponent, MainComponent, RightbarComponent, FilterListComponent, SearchComponent, CategoriesComponent, UserRankComponent, PostListComponent, PostListHeaderComponent, PostComponent, PostDetailViewComponent, AnswerListComponent, AnswerComponent, PostUserComponent, CategoryReviewComponent, LoggedUsersComponent, StarRatingComponent],
   imports: [
     CommonModule,
     PostRoutingModule,

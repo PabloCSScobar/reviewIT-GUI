@@ -1,0 +1,9 @@
+.stars {
+  display: flex;
+  justify-content: center;
+  padding: 3px 0;
+}
+.stars img {
+  width: 25px;
+  height: 25px;
+}

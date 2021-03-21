@@ -1,15 +1,11 @@
 <div class="post-wrapper">
   <div class="post-leftbar">
     <div class="rank-wrapper">
-      <div class="stars">
-        <img src="assets/yellow-star.png" alt="" srcset="">
-        <img src="assets/yellow-star.png" alt="" srcset="">
-        <img src="assets/yellow-star.png" alt="" srcset="">
-        <img src="assets/yellow-star.png" alt="" srcset="">
-        <img src="assets/yellow-star.png" alt="" srcset="">
-      </div>
+      <app-star-rating [rank]="post.rank"></app-star-rating>
       <div class="rank-info">
-        Ocena {{post.rank}}
+        Ocena:
+        <span *ngIf="post.rank !=null"> {{post.rank}}</span>
+        <span *ngIf="post.rank ==null"> Brak</span>
       </div>
     </div>
     <div class="answers-views-wrapper">
@@ -30,9 +26,14 @@
       <div class="repo-link">Link do repozytorium: <a class="project-link" href="#">{{post.repo_link}}</a></div>
     </div>
     <div class="post-last-activity">
-      <span class="activity-type">Odpowiedź </span>udzielona
-      <span class="activity-time">{{post.last_activity.timestamp | timeAgo}} </span> przez
-      <span class="activity-user">{{post.last_activity.username}}</span>
+      <div *ngIf="post.last_activity">
+        <span class="activity-type">Odpowiedź </span>udzielona
+        <span class="activity-time">{{post.last_activity.created | timeAgo}} </span> przez
+        <span class="activity-user">{{post.last_activity.author}}</span>
+      </div>
+      <div *ngIf="!post.last_activity">
+        Brak odpowiedzi.
+      </div>
     </div>
     <div class="post-tags">
       <div *ngFor="let category of post.categories" class="post-tag">{{category.name}}</div>
