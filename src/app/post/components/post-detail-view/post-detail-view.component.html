@@ -13,14 +13,8 @@
       </div>
     </div>
     <div class="project-rank-wrapper">
-      <div class="rank-stars">
-        <img src="assets/yellow-star.png" alt="" srcset="" />
-        <img src="assets/yellow-star.png" alt="" srcset="" />
-        <img src="assets/yellow-star.png" alt="" srcset="" />
-        <img src="assets/yellow-star.png" alt="" srcset="" />
-        <img src="assets/yellow-star.png" alt="" srcset="" />
-      </div>
-      <div class="rank">Ocena: {{ post.rank }}</div>
+      <app-star-rating [img_x]="22" [img_y]="22" [rank]="post.rank"></app-star-rating>
+      <div class="rank">Ocena ogólna: {{ post.rank }}</div>
     </div>
   </div>
   <div class="post-wrapper">
@@ -52,5 +46,4 @@
 </div>
 <div>
   <!-- //TODO loading -->
-  loading....
 </div>

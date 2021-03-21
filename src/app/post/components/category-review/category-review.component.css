@@ -14,18 +14,13 @@
 .rank-wrapper {
   display: flex;
   margin-bottom: auto;
+  align-items: center;
   font-weight: 300;
   font-size: 14px;
 }
-.stars {
-  margin-right: 4px;
-}
-.stars img {
-  width: 13px;
-  height: 13px;
-}
 .rank {
-  margin-top: 2 px;
+  margin-left: 6px;
+  margin-top: 2px;
 }
 .adv-icon {
   margin-right: 3px;
