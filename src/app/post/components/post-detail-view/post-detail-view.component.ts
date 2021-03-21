@@ -19,12 +19,12 @@ export class PostDetailViewComponent implements OnInit {
   routeSub: Subscription;
   post: PostDetail;
 
-  getPost() {
-    this.postService.getPost().subscribe(post => this.post = post);
+  getPost(id: number) {
+    this.postService.getPost(id).subscribe(post => this.post = post);
   }
   //params['id]
   getPostId() {
-    this.routeSub = this.route.params.subscribe( params => this.getPost())
+    this.routeSub = this.route.params.subscribe( params => this.getPost(params['id']))
   }
 
   ngOnInit(): void {

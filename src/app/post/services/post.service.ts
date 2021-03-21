@@ -15,8 +15,8 @@ export class PostService {
   }
 
 
-  getPost() {
-    return this.http.get<PostDetail>('./assets/mock_data/post.json');
+  getPost(id) {
+    return this.http.get<PostDetail>(`${env.apiUrl}/posts/${id}`);
   }
   getPosts() {
     return this.http.get<Post[]>(`${env.apiUrl}/posts/`);
