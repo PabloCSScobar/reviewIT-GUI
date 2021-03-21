@@ -1,6 +1,4 @@
 <div class="stars">
-
-  <img *ngFor="let i of full" src="assets/yellow-star.png" alt="" srcset="">
-  <img *ngFor="let i of empty" src="assets/empty-star.png" alt="" srcset="">
-
+  <img [width]="img_x" [height]="img_y" *ngFor="let i of full" src="assets/yellow-star.png" alt="" srcset="">
+  <img [width]="img_x" [height]="img_y" *ngFor="let i of empty" src="assets/empty-star.png" alt="" srcset="">
 </div>

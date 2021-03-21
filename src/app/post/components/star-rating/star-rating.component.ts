@@ -10,6 +10,8 @@ export class StarRatingComponent implements OnInit {
   empty: Array<number>;
   constructor() { }
 
+  @Input() img_x: number = 13;
+  @Input() img_y: number = 13;
   @Input() set rank(val) {
     val = Math.floor(val);
       this.full = Array(val).fill(0);
@@ -18,6 +20,7 @@ export class StarRatingComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log(this.img_x)
   }
 
 }
