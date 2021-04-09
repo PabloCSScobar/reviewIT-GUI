@@ -22,17 +22,34 @@ import { PostUserComponent } from './components/post-user/post-user.component';
 import { CategoryReviewComponent } from './components/category-review/category-review.component';
 import { LoggedUsersComponent } from './components/logged-users/logged-users.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
+//material
+import { MatPaginatorModule } from '@angular/material/paginator';
 
-
+import { PaginationComponent } from './components/pagination/pagination.component';
 @NgModule({
-  declarations: [HeaderComponent, ContainerComponent, FooterComponent, MainComponent, RightbarComponent, FilterListComponent, SearchComponent, CategoriesComponent, UserRankComponent, PostListComponent, PostListHeaderComponent, PostComponent, PostDetailViewComponent, AnswerListComponent, AnswerComponent, PostUserComponent, CategoryReviewComponent, LoggedUsersComponent, StarRatingComponent],
-  imports: [
-    CommonModule,
-    PostRoutingModule,
-    SharedModule
+  declarations: [
+    HeaderComponent,
+    ContainerComponent,
+    FooterComponent,
+    MainComponent,
+    RightbarComponent,
+    FilterListComponent,
+    SearchComponent,
+    CategoriesComponent,
+    UserRankComponent,
+    PostListComponent,
+    PostListHeaderComponent,
+    PostComponent,
+    PostDetailViewComponent,
+    AnswerListComponent,
+    AnswerComponent,
+    PostUserComponent,
+    CategoryReviewComponent,
+    LoggedUsersComponent,
+    StarRatingComponent,
+    PaginationComponent,
   ],
-  exports: [
-    ContainerComponent
-  ]
+  imports: [CommonModule, PostRoutingModule, SharedModule, MatPaginatorModule],
+  exports: [ContainerComponent],
 })
-export class PostModule { }
+export class PostModule {}
