@@ -3,19 +3,27 @@
 </div>
 <div class="categories-wrapper">
   <div class="category-row">
-    <div class="category">
+    <div
+      [ngClass]="{ selected: isSelected(categories.design) }"
+      (click)="setFilter(categories.design)"
+      class="category"
+    >
       <span
         class="material-icons md-36"
-        matTooltip="Wygląd"
+        [matTooltip]="categories.design"
         matTooltipClass="category-tooltip"
       >
         design_services
       </span>
     </div>
-    <div class="category">
+    <div
+      [ngClass]="{ selected: isSelected(categories.rwd) }"
+      (click)="setFilter(categories.rwd)"
+      class="category"
+    >
       <span
         class="material-icons md-36"
-        matTooltip="Responsywność"
+        [matTooltip]="categories.rwd"
         matTooltipClass="category-tooltip"
       >
         devices
@@ -23,19 +31,27 @@
     </div>
   </div>
   <div class="category-row">
-    <div class="category">
+    <div
+      [ngClass]="{ selected: isSelected(categories.code) }"
+      (click)="setFilter(categories.code)"
+      class="category"
+    >
       <span
         class="material-icons md-36"
-        matTooltip="Jakość kodu"
+        [matTooltip]="categories.code"
         matTooltipClass="category-tooltip"
       >
         code
       </span>
     </div>
-    <div class="category">
+    <div
+      [ngClass]="{ selected: isSelected(categories.seo) }"
+      (click)="setFilter(categories.seo)"
+      class="category"
+    >
       <span
         class="material-icons md-36"
-        matTooltip="SEO"
+        [matTooltip]="categories.seo"
         matTooltipClass="category-tooltip"
       >
         manage_search
@@ -43,19 +59,27 @@
     </div>
   </div>
   <div class="category-row">
-    <div class="category">
+    <div
+      [ngClass]="{ selected: isSelected(categories.accesibility) }"
+      (click)="setFilter(categories.accesibility)"
+      class="category"
+    >
       <span
         class="material-icons md-36"
-        matTooltip="Dostępność"
+        [matTooltip]="categories.accesibility"
         matTooltipClass="category-tooltip"
       >
         wheelchair_pickup
       </span>
     </div>
-    <div class="category">
+    <div
+      [ngClass]="{ selected: isSelected(categories.performance) }"
+      (click)="setFilter(categories.performance)"
+      class="category"
+    >
       <span
         class="material-icons md-36"
-        matTooltip="Wydajność"
+        [matTooltip]="categories.performance"
         matTooltipClass="category-tooltip"
       >
         speed

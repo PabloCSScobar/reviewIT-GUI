@@ -15,6 +15,7 @@ export class PostService {
   pagination = new BehaviorSubject(null);
   posts = new BehaviorSubject([]);
   ordering = 'date';
+  categoryFilter = null;
   constructor(private http: HttpClient) {}
 
   getPost(id) {
@@ -22,9 +23,13 @@ export class PostService {
   }
   getPosts(page = 1) {
     return this.http
-      .get<PostList>(
-        `${env.apiUrl}/posts/?page=${page}&ordering=${this.ordering}`
-      )
+      .get<PostList>(`${env.apiUrl}/posts/`, {
+        params: {
+          page: `${page}`,
+          ordering: this.ordering,
+          ...(this.categoryFilter && { category: this.categoryFilter }), //add category param only if categoryFilter !=null
+        },
+      })
       .pipe(tap((res) => this.pagination.next(res.pagination)))
       .pipe(tap((res) => this.posts.next(res.results)))
       .toPromise();
@@ -36,6 +41,11 @@ export class PostService {
 
   setOrdering(ordering: string) {
     this.ordering = ordering;
+    this.getPosts();
+  }
+
+  setCategoryFilter(category: string) {
+    this.categoryFilter = category;
     this.getPosts();
   }
 }

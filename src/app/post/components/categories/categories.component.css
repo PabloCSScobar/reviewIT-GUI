@@ -25,7 +25,8 @@
   width: 100%;
   height: 60px;
   border: 1px solid #1b3641;
-}
-.material-icons {
   cursor: pointer;
+}
+.category.selected {
+  background-color: #122025;
 }
