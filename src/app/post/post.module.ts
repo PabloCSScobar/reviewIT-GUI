@@ -24,6 +24,7 @@ import { LoggedUsersComponent } from './components/logged-users/logged-users.com
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 //material
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { PaginationComponent } from './components/pagination/pagination.component';
 @NgModule({
@@ -49,7 +50,13 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     StarRatingComponent,
     PaginationComponent,
   ],
-  imports: [CommonModule, PostRoutingModule, SharedModule, MatPaginatorModule],
+  imports: [
+    CommonModule,
+    PostRoutingModule,
+    SharedModule,
+    MatPaginatorModule,
+    MatTooltipModule,
+  ],
   exports: [ContainerComponent],
 })
 export class PostModule {}

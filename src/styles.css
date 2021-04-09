@@ -25,3 +25,7 @@ body {
 .material-icons.md-48 {
   font-size: 48px;
 }
+.category-tooltip {
+  background: #2a9d8f;
+  font-size: 12px;
+}
