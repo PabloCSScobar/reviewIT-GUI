@@ -1,24 +1,27 @@
 <div class="answer-header">
-  <h4>{{category.category.name}}</h4>
+  <h4>{{ category.category.name }}</h4>
   <div class="rank-wrapper">
-<app-star-rating [img_x]="16" [img_y]="16" [rank]="category.rank"></app-star-rating>
-    <div class="rank">Ocena: {{category.rank}}</div>
+    <app-star-rating
+      [img_x]="16"
+      [img_y]="16"
+      [rank]="category.rank"
+    ></app-star-rating>
+    <div class="rank">Ocena: {{ category.rank }}</div>
   </div>
 </div>
 <div class="review-advantages">
   <div *ngFor="let node of category.category_nodes" class="adv-wrapper">
-    <div *ngIf="node.answer_type=='advantage'" class="adv-icon">
-      <img src="assets/check_green.png" alt="" srcset="">
+    <div *ngIf="node.answer_type == 'advantage'" class="adv-icon">
+      <img src="assets/check_green.png" alt="" srcset="" />
     </div>
-    <div class="adv-content">{{node.description}}</div>
+    <div class="adv-content">{{ node.description }}</div>
   </div>
 </div>
 <div class="review-disadvantages">
   <div *ngFor="let node of category.category_nodes" class="adv-wrapper">
-    <div *ngIf="node.answer_type=='disadvantage'" class="adv-icon">
-      <img src="assets/x_red.png" alt="" srcset="">
+    <div *ngIf="node.answer_type == 'disadvantage'" class="adv-icon">
+      <img src="assets/x_red.png" alt="" srcset="" />
     </div>
-    <div class="adv-content">{{node.description}}</div>
+    <div class="adv-content">{{ node.description }}</div>
   </div>
 </div>
-
