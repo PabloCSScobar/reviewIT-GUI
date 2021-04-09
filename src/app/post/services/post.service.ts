@@ -1,29 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { pipe } from 'rxjs';
+import { BehaviorSubject, pipe } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { Post, PostDetail } from '../models/post';
 import { PostUser } from '../models/post-user';
 import { UserRankNode } from '../models/user_rank_node';
-import { environment as env}  from '../../../environments/environment';
+import { environment as env } from '../../../environments/environment';
+import { PostList } from '../models/post_list';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PostService {
-  constructor(private http: HttpClient) {
+  pagination = new BehaviorSubject(null);
+  posts = new BehaviorSubject([]);
 
-  }
-
+  constructor(private http: HttpClient) {}
 
   getPost(id) {
     return this.http.get<PostDetail>(`${env.apiUrl}/posts/${id}`);
   }
-  getPosts() {
-    return this.http.get<any>(`${env.apiUrl}/posts/`).pipe(
-      map(res => res.results)
-    );
+  getPosts(page = 1) {
+    return this.http
+      .get<PostList>(`${env.apiUrl}/posts/?page=${page}`)
+      .pipe(tap((res) => this.pagination.next(res.pagination)))
+      .pipe(tap((res) => this.posts.next(res.results)))
+      .toPromise();
   }
+
   getTopUsers() {
     return this.http.get<UserRankNode[]>('./assets/mock_data/top-users.json');
   }

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { PostDetailViewComponent } from './post/components/post-detail-view/post-detail-view.component';
 import { PostListComponent } from './post/components/post-list/post-list.component';
 import { ContainerComponent } from './post/pages/container/container.component';
+import { PostsResolver } from './post/services/posts-resolver';
 
 const routes: Routes = [
   {
@@ -13,6 +14,9 @@ const routes: Routes = [
         path: 'list',
         component: PostListComponent,
         pathMatch: 'full',
+        resolve: {
+          posts: PostsResolver,
+        },
       },
       {
         path: 'post',
@@ -28,8 +32,11 @@ const routes: Routes = [
         path: '**',
         redirectTo: '/list',
         pathMatch: 'full',
+        resolve: {
+          posts: PostsResolver,
+        },
       },
-    ]
+    ],
   },
   // {
   //   path: 'post',
@@ -50,6 +57,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
