@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="filter active">Najnowsze</div>
-  <div class="filter">Najwyższa ocena</div>
-  <div class="filter">Najwięcej odwiedzin</div>
-  <div class="filter">Najwięcej odpowiedzi</div>
-  <div class="filter">Bez odpowiedzi</div>
+  <div [ngClass]="{'active':isActive(ordering.date)}" (click)="setSorting(ordering.date)" class="filter active">Najnowsze</div>
+  <div [ngClass]="{'active':isActive(ordering.rank)}" (click)="setSorting(ordering.rank)" class="filter">Najwyższa ocena</div>
+  <div [ngClass]="{'active':isActive(ordering.visits)}" (click)="setSorting(ordering.visits)" class="filter">Najwięcej odwiedzin</div>
+  <div [ngClass]="{'active':isActive(ordering.answers)}" (click)="setSorting(ordering.answers)" class="filter">Najwięcej odpowiedzi</div>
+  <div [ngClass]="{'active':isActive(ordering.posts_with_no_answer)}" (click)="setSorting(ordering.posts_with_no_answer)" class="filter">Bez odpowiedzi</div>
 </div>

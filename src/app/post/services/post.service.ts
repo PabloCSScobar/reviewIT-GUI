@@ -14,7 +14,7 @@ import { PostList } from '../models/post_list';
 export class PostService {
   pagination = new BehaviorSubject(null);
   posts = new BehaviorSubject([]);
-
+  ordering = 'date';
   constructor(private http: HttpClient) {}
 
   getPost(id) {
@@ -22,7 +22,9 @@ export class PostService {
   }
   getPosts(page = 1) {
     return this.http
-      .get<PostList>(`${env.apiUrl}/posts/?page=${page}`)
+      .get<PostList>(
+        `${env.apiUrl}/posts/?page=${page}&ordering=${this.ordering}`
+      )
       .pipe(tap((res) => this.pagination.next(res.pagination)))
       .pipe(tap((res) => this.posts.next(res.results)))
       .toPromise();
@@ -30,5 +32,10 @@ export class PostService {
 
   getTopUsers() {
     return this.http.get<UserRankNode[]>('./assets/mock_data/top-users.json');
+  }
+
+  setOrdering(ordering: string) {
+    this.ordering = ordering;
+    this.getPosts();
   }
 }
