@@ -1,0 +1,11 @@
+<div *ngIf="paginationDetails">
+  <mat-paginator
+    [length]="paginationDetails.count"
+    [pageSize]="paginationDetails.page_size"
+    [hidePageSize]="true"
+    [pageIndex]="paginationDetails.current - 1"
+    (page)="setPage($event)"
+  >
+  </mat-paginator>
+</div>
+<div *ngIf="!paginationDetails">loading...</div>
