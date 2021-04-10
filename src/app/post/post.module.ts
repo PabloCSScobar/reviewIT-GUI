@@ -31,6 +31,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { NewPostComponent } from './components/new-post/new-post.component';
 
@@ -69,6 +71,8 @@ import { NewPostComponent } from './components/new-post/new-post.component';
     MatIconModule,
     MatSelectModule,
     MatButtonModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   exports: [ContainerComponent],
 })
