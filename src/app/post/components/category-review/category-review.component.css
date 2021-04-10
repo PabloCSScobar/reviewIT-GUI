@@ -8,7 +8,7 @@
 }
 .answer-header h4 {
   font-size: 16px;
-  color: #E76F51;
+  color: #e76f51;
   font-weight: 700;
 }
 .rank-wrapper {
@@ -29,11 +29,11 @@
   width: 20px;
   height: 18px;
 }
-.review-advantages, .review-disadvantages {
-  margin-top: 8px;
+.review-advantages,
+.review-disadvantages {
   margin-left: 3px;
 }
 .adv-wrapper {
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }

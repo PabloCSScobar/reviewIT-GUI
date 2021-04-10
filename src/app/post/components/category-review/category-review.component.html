@@ -11,17 +11,21 @@
 </div>
 <div class="review-advantages">
   <div *ngFor="let node of category.category_nodes" class="adv-wrapper">
-    <div *ngIf="node.answer_type == 'advantage'" class="adv-icon">
-      <img src="assets/check_green.png" alt="" srcset="" />
-    </div>
-    <div class="adv-content">{{ node.description }}</div>
+    <ng-container *ngIf="node.answer_type == 'advantage'">
+      <div class="adv-icon">
+        <img src="assets/check_green.png" alt="" srcset="" />
+      </div>
+      <div class="adv-content">{{ node.description }}</div>
+    </ng-container>
   </div>
 </div>
 <div class="review-disadvantages">
   <div *ngFor="let node of category.category_nodes" class="adv-wrapper">
-    <div *ngIf="node.answer_type == 'disadvantage'" class="adv-icon">
-      <img src="assets/x_red.png" alt="" srcset="" />
-    </div>
-    <div class="adv-content">{{ node.description }}</div>
+    <ng-container *ngIf="node.answer_type == 'disadvantage'">
+      <div class="adv-icon">
+        <img src="assets/x_red.png" alt="" srcset="" />
+      </div>
+      <div class="adv-content">{{ node.description }}</div>
+    </ng-container>
   </div>
 </div>
