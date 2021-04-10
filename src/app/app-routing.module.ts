@@ -4,6 +4,7 @@ import { NewPostComponent } from './post/components/new-post/new-post.component'
 import { PostDetailViewComponent } from './post/components/post-detail-view/post-detail-view.component';
 import { PostListComponent } from './post/components/post-list/post-list.component';
 import { ContainerComponent } from './post/pages/container/container.component';
+import { CategoriesResolver } from './post/services/categories-resolver';
 import { PostsResolver } from './post/services/posts-resolver';
 
 const routes: Routes = [
@@ -36,6 +37,9 @@ const routes: Routes = [
         path: 'new-post',
         component: NewPostComponent,
         pathMatch: 'full',
+        resolve: {
+          categories: CategoriesResolver,
+        },
       },
       {
         path: '**',

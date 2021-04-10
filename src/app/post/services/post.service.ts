@@ -7,14 +7,17 @@ import { PostUser } from '../models/post-user';
 import { UserRankNode } from '../models/user_rank_node';
 import { environment as env } from '../../../environments/environment';
 import { PostList } from '../models/post_list';
+import { Category } from '../models/category';
+import { Pagination } from '../models/pagination';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostService {
-  pagination = new BehaviorSubject(null);
-  posts = new BehaviorSubject([]);
-  ordering = 'date';
+  pagination = new BehaviorSubject<Pagination>(null);
+  categories = new BehaviorSubject<Category[]>([]);
+  posts = new BehaviorSubject<Post[]>([]);
+  ordering = 'date'; //default order
   categoryFilter = null;
   constructor(private http: HttpClient) {}
 
@@ -32,6 +35,14 @@ export class PostService {
       })
       .pipe(tap((res) => this.pagination.next(res.pagination)))
       .pipe(tap((res) => this.posts.next(res.results)))
+      .toPromise();
+  }
+
+  getCategories() {
+    return this.http
+      .get<Category[]>(`${env.apiUrl}/categories/`)
+      .pipe(tap((res) => this.categories.next(res)))
+      .pipe(tap(console.log))
       .toPromise();
   }
 
