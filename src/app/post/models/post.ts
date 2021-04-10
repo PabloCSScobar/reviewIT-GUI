@@ -17,8 +17,16 @@ export interface Post {
   categories: PostCategory[];
 }
 
-export interface PostDetail extends Post{
+export interface PostDetail extends Post {
   description: string;
   answers: Answer[];
   author: PostUser;
+}
+
+export interface PostNew {
+  title: string;
+  description: string;
+  page_link: string;
+  repo_link: string;
+  categories: number[];
 }
