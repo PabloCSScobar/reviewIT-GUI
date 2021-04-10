@@ -46,6 +46,11 @@ export class PostService {
       .toPromise();
   }
 
+  //todo service auth i pobieranie id z obiektu zalogowanego usera
+  getLoggedUserId() {
+    return 1;
+  }
+
   getTopUsers() {
     return this.http.get<UserRankNode[]>('./assets/mock_data/top-users.json');
   }
