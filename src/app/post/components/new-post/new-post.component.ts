@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category } from '../../models/category';
+import { PostNew } from '../../models/post';
 import { PostService } from '../../services/post.service';
 
 @Component({
@@ -14,11 +15,11 @@ export class NewPostComponent implements OnInit {
   categories: Category[];
 
   newPostForm = new FormGroup({
-    title: new FormControl(''),
-    description: new FormControl(''),
-    page_link: new FormControl(''),
-    repo_link: new FormControl(''),
-    categories: new FormControl([]),
+    title: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
+    page_link: new FormControl('', [Validators.required]),
+    repo_link: new FormControl('', [Validators.required]),
+    categories: new FormControl([], [Validators.required]),
   });
 
   getCategories() {
@@ -27,7 +28,14 @@ export class NewPostComponent implements OnInit {
 
   createPost() {
     console.log(this.newPostForm);
+    if (
+      this.newPostForm.pristine === false &&
+      this.newPostForm.status === 'VALID'
+    ) {
+      const post: PostNew = this.newPostForm.value;
+    }
   }
+
   ngOnInit(): void {
     this.getCategories();
   }

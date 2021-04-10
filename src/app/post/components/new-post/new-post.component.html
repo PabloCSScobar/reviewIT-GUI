@@ -3,40 +3,60 @@
     <p>
       <mat-form-field appearance="legacy" style="width: 100%">
         <mat-label>Tytuł</mat-label>
-        <input formControlName="title" matInput />
+        <input formControlName="title" matInput required />
       </mat-form-field>
+      <app-error-message
+        [control]="newPostForm.controls['title']"
+      ></app-error-message>
     </p>
 
     <p>
       <mat-form-field appearance="legacy" style="width: 100%">
         <mat-label>Opis</mat-label>
-        <textarea formControlName="description" matInput rows="5"></textarea>
+        <textarea
+          formControlName="description"
+          matInput
+          rows="5"
+          required
+        ></textarea>
       </mat-form-field>
+      <app-error-message
+        [control]="newPostForm.controls['description']"
+      ></app-error-message>
     </p>
     <p>
       <mat-form-field appearance="legacy" style="width: 100%">
         <mat-label>Link do strony live</mat-label>
-        <input formControlName="page_link" matInput />
+        <input formControlName="page_link" matInput required />
         <mat-icon matSuffix>language</mat-icon>
       </mat-form-field>
+      <app-error-message
+        [control]="newPostForm.controls['page_link']"
+      ></app-error-message>
     </p>
     <p>
       <mat-form-field appearance="legacy" style="width: 100%">
         <mat-label>Link do repozytorium</mat-label>
-        <input formControlName="repo_link" matInput />
+        <input formControlName="repo_link" matInput required />
         <mat-icon matSuffix>device_hub</mat-icon>
       </mat-form-field>
+      <app-error-message
+        [control]="newPostForm.controls['repo_link']"
+      ></app-error-message>
     </p>
     <p>
       <mat-form-field appearance="legacy" style="width: 100%">
         <mat-label>Kategorie</mat-label>
-        <mat-select formControlName="categories" multiple>
+        <mat-select formControlName="categories" multiple required>
           <mat-option *ngFor="let category of categories" [value]="category.id">
             {{ category.name }}
           </mat-option>
         </mat-select>
         <mat-hint>Kategorie wymagające recenzji</mat-hint>
       </mat-form-field>
+      <app-error-message
+        [control]="newPostForm.controls['categories']"
+      ></app-error-message>
     </p>
     <p class="submit">
       <button mat-raised-button color="primary">Wyślij</button>
