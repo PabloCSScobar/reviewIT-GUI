@@ -67,9 +67,43 @@ $md-mcgpalette-accent: (
     A700: #000000,
   ),
 );
+
+$md-mcgpalette-warn: (
+  50: #f4e7e7,
+  100: #e4c4c4,
+  200: #d29d9c,
+  300: #c07674,
+  400: #b35857,
+  500: #a53b39,
+  600: #9d3533,
+  700: #932d2c,
+  800: #8a2624,
+  900: #791917,
+  A100: #ffb2b1,
+  A200: #ff7f7e,
+  A400: #ff4d4b,
+  A700: #ff3331,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #ffffff,
+  ),
+);
 $my-app-primary: mat-palette($md-mcgpalette);
 $my-app-accent: mat-palette($md-mcgpalette-accent);
-$theme: mat-light-theme($my-app-primary, $my-app-accent);
+$my-app-warn: mat-palette($md-mcgpalette-warn);
+$theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 @include angular-material-theme($theme);
 
 * {
@@ -100,4 +134,9 @@ body {
 .category-tooltip {
   background: #2a9d8f;
   font-size: 12px;
+}
+:root {
+  .mat-error {
+    color: #a53b39;
+  }
 }
