@@ -24,6 +24,9 @@ export interface PostDetail extends Post {
 }
 
 export interface PostNew {
+  id?: number;
+  created?: string;
+  author: number;
   title: string;
   description: string;
   page_link: string;

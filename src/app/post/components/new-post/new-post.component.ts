@@ -32,8 +32,17 @@ export class NewPostComponent implements OnInit {
       this.newPostForm.pristine === false &&
       this.newPostForm.status === 'VALID'
     ) {
-      const post: PostNew = this.newPostForm.value;
+      const post: PostNew = {
+        ...this.newPostForm.value,
+        author: this.getAuthorId(),
+      };
+      this.postService.addPost(post);
+    } else {
+      this.newPostForm.markAllAsTouched();
     }
+  }
+  getAuthorId(): number {
+    return this.postService.getLoggedUserId();
   }
 
   ngOnInit(): void {
