@@ -25,8 +25,15 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
 //material
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
 
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { NewPostComponent } from './components/new-post/new-post.component';
+
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -49,6 +56,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     LoggedUsersComponent,
     StarRatingComponent,
     PaginationComponent,
+    NewPostComponent,
   ],
   imports: [
     CommonModule,
@@ -56,6 +64,11 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     SharedModule,
     MatPaginatorModule,
     MatTooltipModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatSelectModule,
+    MatButtonModule,
   ],
   exports: [ContainerComponent],
 })

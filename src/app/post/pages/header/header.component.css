@@ -13,10 +13,13 @@ nav {
 }
 
 .logo {
-  padding:0 2px;
+  padding: 0 2px;
+}
+.logo a {
+  text-decoration: none;
 }
 .logo h1 {
-  margin:0;
+  margin: 0;
   padding: 0;
   color: white;
   font-size: 21px;
@@ -30,7 +33,7 @@ nav {
   display: flex;
   margin-left: 80px;
 }
-.menu-entry a{
+.menu-entry a {
   margin-right: 50px;
   text-decoration: none;
   color: white;
@@ -44,4 +47,26 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.new-question-wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: baseline;
+  margin-right: 70px;
+  padding: 10px;
+  cursor: pointer;
+}
+.ask-question {
+  display: flex;
+  margin-left: 10px;
+  vertical-align: 1px;
+}
+.ask-question > span > a {
+  text-decoration: none;
+  color: #f4a261;
+}
+.question-icon {
+  position: relative;
+  top: 4px;
+  color: #f4a261;
 }

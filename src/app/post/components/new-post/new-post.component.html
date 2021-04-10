@@ -1,0 +1,77 @@
+<div class="new-post-form-wrapper">
+  <form>
+    <p>
+      <mat-form-field appearance="legacy" style="width: 100%">
+        <mat-label>Tytuł</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="legacy" style="width: 100%">
+        <mat-label>Opis</mat-label>
+        <textarea matInput rows="5"></textarea>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="legacy" style="width: 100%">
+        <mat-label>Link do strony live</mat-label>
+        <input matInput />
+        <mat-icon matSuffix>language</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="legacy" style="width: 100%">
+        <mat-label>Link do repozytorium</mat-label>
+        <input matInput />
+        <mat-icon matSuffix>device_hub</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="legacy" style="width: 100%">
+        <mat-label>Kategorie</mat-label>
+        <mat-select multiple>
+          <mat-option value="one">
+            <div class="category-option-node">
+              <span>Wydajność</span>
+              <span class="material-icons option-icon">speed</span>
+            </div>
+          </mat-option>
+          <mat-option value="two">
+            <div class="category-option-node">
+              <span>Dostępność</span>
+              <span class="material-icons option-icon">wheelchair_pickup</span>
+            </div>
+          </mat-option>
+          <mat-option value="two">
+            <div class="category-option-node">
+              <span>Responsywność</span>
+              <span class="material-icons option-icon">devices</span>
+            </div>
+          </mat-option>
+          <mat-option value="two">
+            <div class="category-option-node">
+              <span>Jakość kodu</span>
+              <span class="material-icons option-icon">code</span>
+            </div>
+          </mat-option>
+          <mat-option value="two">
+            <div class="category-option-node">
+              <span>Wygląd</span>
+              <span class="material-icons option-icon">design_services</span>
+            </div>
+          </mat-option>
+          <mat-option value="two">
+            <div class="category-option-node">
+              <span>SEO</span>
+              <span class="material-icons option-icon">manage_search</span>
+            </div>
+          </mat-option>
+        </mat-select>
+        <mat-hint>Kategorie wymagające recenzji</mat-hint>
+      </mat-form-field>
+    </p>
+    <p class="submit">
+      <button mat-raised-button color="primary">Wyślij</button>
+    </p>
+  </form>
+</div>
