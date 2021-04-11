@@ -1,4 +1,5 @@
 <div class="answers-header">
-  <h3>{{answers.length}} odpowiedzi</h3>
+  <h3>{{ answers.length }} odpowiedzi</h3>
 </div>
 <app-answer *ngFor="let answer of answers" [answer]="answer"></app-answer>
+<app-new-answer [categories]="categories"></app-new-answer>
