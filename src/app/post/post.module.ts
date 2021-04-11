@@ -35,6 +35,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { NewPostComponent } from './components/new-post/new-post.component';
+import { NewAnswerComponent } from './components/new-answer/new-answer.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { NewPostComponent } from './components/new-post/new-post.component';
     StarRatingComponent,
     PaginationComponent,
     NewPostComponent,
+    NewAnswerComponent,
   ],
   imports: [
     CommonModule,
