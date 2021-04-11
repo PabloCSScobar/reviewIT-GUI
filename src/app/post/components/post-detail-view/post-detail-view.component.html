@@ -6,14 +6,16 @@
       </div>
       <div class="author-activity-details">
         Pytanie zadane
-        <span class="activity-time">{{
-          post.created | timeAgo
-        }}</span>
+        <span class="activity-time">{{ post.created | timeAgo }}</span>
         temu
       </div>
     </div>
     <div class="project-rank-wrapper">
-      <app-star-rating [img_x]="22" [img_y]="22" [rank]="post.rank"></app-star-rating>
+      <app-star-rating
+        [img_x]="22"
+        [img_y]="22"
+        [rank]="post.rank"
+      ></app-star-rating>
       <div class="rank">Ocena ogólna: {{ post.rank }}</div>
     </div>
   </div>
@@ -42,7 +44,10 @@
       </div>
     </div>
   </div>
-  <app-answer-list [answers]="post.answers"></app-answer-list>
+  <app-answer-list
+    [categories]="post.categories"
+    [answers]="post.answers"
+  ></app-answer-list>
 </div>
 <div>
   <!-- //TODO loading -->
