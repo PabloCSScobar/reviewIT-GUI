@@ -1,7 +1,7 @@
-import { Category } from "./category";
+import { Category } from './category';
 
 export interface ReviewedCategory {
-  id: number;
+  id?: number;
   category: Category;
   rank: number;
   category_nodes: CategoryNode[];
