@@ -1,0 +1,27 @@
+.new-answer-form-wrapper {
+  width: 100%;
+  padding: 20px;
+}
+.new-answer-wrapper {
+  padding: 5px 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.add-category-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.add-category-button {
+  /* margin-right: 10px; */
+}
+
+.category-list-wrapper {
+  margin-bottom: 30px;
+}
+
+.category-name-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

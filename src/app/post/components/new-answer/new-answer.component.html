@@ -1,0 +1,75 @@
+<div class="new-answer-form-wrapper">
+  <form>
+    <p>
+      <mat-form-field appearance="legacy" style="width: 100%">
+        <mat-label>Ogólny opis</mat-label>
+        <input matInput required />
+      </mat-form-field>
+    </p>
+    <div class="category-list-wrapper">
+      <div
+        *ngFor="let category of reviewed_categories"
+        class="category-wrapper"
+      >
+        <div class="category-name-wrapper">
+          <button
+            (click)="removeCategory(category)"
+            mat-icon-button
+            color="warn"
+            aria-label="Remove category"
+          >
+            <span class="material-icons md-24"> remove </span>
+          </button>
+          <p>Kategoria: {{ category.category.name }}</p>
+        </div>
+        <p>
+          <mat-form-field appearance="legacy" style="width: 100%">
+            <mat-label>Ocena</mat-label>
+            <input type="number" matInput required />
+          </mat-form-field>
+        </p>
+        <div>
+          <button mat-button color="primary">
+            <span class="material-icons"> add </span>
+            Dodaj wpis do kategorii
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="!isEveryCategorySelected()" class="add-category-wrapper">
+      <mat-form-field appearance="legacy" style="width: 70%">
+        <mat-label>Kategorie wymagające recenzji</mat-label>
+        <mat-select
+          #category_select
+          [value]="available_categories[0].id"
+          required
+        >
+          <ng-container *ngFor="let category of _categories">
+            <mat-option
+              *ngIf="isCategoryAvailable(category.id)"
+              [value]="category.id"
+            >
+              {{ category.name }}
+            </mat-option>
+          </ng-container>
+        </mat-select>
+      </mat-form-field>
+      <button
+        class="add-category-button"
+        (click)="addCategory(category_select.value)"
+        mat-raised-button
+        color="accent"
+      >
+        <span class="material-icons"> add </span>
+        Dodaj kategorię
+      </button>
+    </div>
+    <div class="new-answer-wrapper">
+      <button (click)="showForm()" mat-raised-button color="warn">
+        <span class="material-icons"> add </span>
+        Dodaj recenzję
+      </button>
+    </div>
+  </form>
+</div>
