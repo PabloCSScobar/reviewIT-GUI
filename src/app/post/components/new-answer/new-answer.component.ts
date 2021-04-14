@@ -1,5 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormArray,
+  Validators,
+} from '@angular/forms';
 import { Category } from '../../models/category';
 import { ReviewedCategory } from '../../models/reviewed_category';
 import { PostService } from '../../services/post.service';
@@ -10,25 +16,22 @@ import { PostService } from '../../services/post.service';
   styleUrls: ['./new-answer.component.css'],
 })
 export class NewAnswerComponent implements OnInit {
-  constructor(private postService: PostService) {}
-
+  available_categories: Category[];
+  reviewed_categories: ReviewedCategory[] = [];
   _categories: Category[];
+  newAnswerForm: FormGroup;
+
   @Input() set categories(c: Category[]) {
     this._categories = c;
     this.updateAvailableCategories();
   }
 
-  available_categories: Category[];
-  reviewed_categories: ReviewedCategory[] = [];
+  constructor(
+    private postService: PostService,
+    private formBuilder: FormBuilder
+  ) {}
 
-  newAnswerForm = new FormGroup({
-    description: new FormControl('', [Validators.required]),
-    reviewed_categories: new FormControl([], [Validators.required]),
-  });
-
-  showForm() {
-    //
-  }
+  showForm() {}
 
   addCategory(categoryId: number) {
     this.reviewed_categories.push({
@@ -45,6 +48,29 @@ export class NewAnswerComponent implements OnInit {
     );
     this.updateAvailableCategories();
   }
+
+  removeCategoryNode(category: ReviewedCategory, nodeIndex: number) {
+    this.reviewed_categories = this.reviewed_categories.map((c) => {
+      if (c.category.id !== category.category.id) {
+        return c;
+      } else {
+        c.category_nodes.splice(nodeIndex, 1);
+        return c;
+      }
+    });
+  }
+
+  addCategoryNode(category: ReviewedCategory) {
+    console.log(category);
+    let categoryNodes = category.category_nodes;
+    categoryNodes.push({ answer_type: 'advantage', description: '' });
+    this.reviewed_categories = this.reviewed_categories.map((c) =>
+      c.category.id === category.id
+        ? ({ ...c, category_nodes: categoryNodes } as ReviewedCategory)
+        : c
+    );
+  }
+
   isCategoryAvailable(id: number) {
     return !this.reviewed_categories.some((c) => c.category.id === id);
   }
@@ -70,5 +96,10 @@ export class NewAnswerComponent implements OnInit {
     this.available_categories = this.getAvailableCategories();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.newAnswerForm = new FormGroup({
+      description: new FormControl('', [Validators.required]),
+      reviewed_categories: this.formBuilder.array([]),
+    });
+  }
 }

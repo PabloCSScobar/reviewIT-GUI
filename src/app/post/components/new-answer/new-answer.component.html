@@ -12,6 +12,7 @@
         class="category-wrapper"
       >
         <div class="category-name-wrapper">
+          <p>Kategoria: {{ category.category.name }}</p>
           <button
             (click)="removeCategory(category)"
             mat-icon-button
@@ -20,7 +21,6 @@
           >
             <span class="material-icons md-24"> remove </span>
           </button>
-          <p>Kategoria: {{ category.category.name }}</p>
         </div>
         <p>
           <mat-form-field appearance="legacy" style="width: 100%">
@@ -29,7 +29,29 @@
           </mat-form-field>
         </p>
         <div>
-          <button mat-button color="primary">
+          <div class="category-nodes-wrapper">
+            <div
+              class="category-node"
+              *ngFor="let node of category.category_nodes; let i = index"
+            >
+              <app-category-node
+                [(value)]="category.category_nodes[i]"
+              ></app-category-node>
+              <button
+                (click)="removeCategoryNode(category, i)"
+                mat-icon-button
+                color="warn"
+                aria-label="Remove category"
+              >
+                <span class="material-icons md-24"> remove </span>
+              </button>
+            </div>
+          </div>
+          <button
+            (click)="addCategoryNode(category)"
+            mat-button
+            color="primary"
+          >
             <span class="material-icons"> add </span>
             Dodaj wpis do kategorii
           </button>
