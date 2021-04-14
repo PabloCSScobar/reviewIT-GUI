@@ -1,0 +1,27 @@
+<div class="category-node-wrapper">
+  <span
+    (click)="setAnswerType(true)"
+    [ngClass]="{ active: answer_type == true }"
+    class="material-icons thumb thumb-up"
+  >
+    thumb_up
+  </span>
+  <span
+    (click)="setAnswerType(false)"
+    [ngClass]="{ active: answer_type == false }"
+    class="material-icons thumb thumb-down"
+  >
+    thumb_down
+  </span>
+  <mat-form-field appearance="legacy" style="width: 100%">
+    <mat-label>Opis</mat-label>
+    <textarea
+      (blur)="onDescriptionBlur($event.target.value)"
+      [(ngModel)]="categoryNode.description"
+      matInput
+      cdkTextareaAutosize
+      cdkAutosizeMinRows="1"
+      cdkAutosizeMaxRows="5"
+    ></textarea>
+  </mat-form-field>
+</div>

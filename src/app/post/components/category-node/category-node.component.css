@@ -1,0 +1,18 @@
+.category-node-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.thumb {
+  margin-right: 5px;
+  cursor: pointer;
+}
+.thumb-up.active,
+.thumb-up:hover {
+  color: green;
+}
+.thumb-down.active,
+.thumb-down:hover {
+  color: red;
+}
