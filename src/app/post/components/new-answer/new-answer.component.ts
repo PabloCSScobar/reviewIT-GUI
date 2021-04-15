@@ -16,14 +16,16 @@ import { PostService } from '../../services/post.service';
   styleUrls: ['./new-answer.component.css'],
 })
 export class NewAnswerComponent implements OnInit {
+  test: any;
   available_categories: Category[];
   reviewed_categories: ReviewedCategory[] = [];
+  // reviewed_categories_arr: FormArray;
   _categories: Category[];
   newAnswerForm: FormGroup;
 
   @Input() set categories(c: Category[]) {
     this._categories = c;
-    this.updateAvailableCategories();
+    this.available_categories = c;
   }
 
   constructor(
@@ -31,60 +33,49 @@ export class NewAnswerComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {}
 
-  showForm() {}
+  addAnswer() {
+    console.log(this.newAnswerForm.value);
+  }
 
   addCategory(categoryId: number) {
-    this.reviewed_categories.push({
-      category: this.getCategoryFromId(categoryId),
-      rank: null,
-      category_nodes: [],
-    });
-    this.updateAvailableCategories();
+    let categories = this.getReviewedCategoriesArr();
+    categories.push(this.createCategoryItem(categoryId));
+    this.updateAvailableCategories('remove', categoryId);
+    console.log(this.newAnswerForm);
   }
 
-  removeCategory(category: ReviewedCategory) {
-    this.reviewed_categories = this.reviewed_categories.filter(
-      (c) => c.category.id !== category.category.id
-    );
-    this.updateAvailableCategories();
-  }
-
-  removeCategoryNode(category: ReviewedCategory, nodeIndex: number) {
-    this.reviewed_categories = this.reviewed_categories.map((c) => {
-      if (c.category.id !== category.category.id) {
-        return c;
-      } else {
-        c.category_nodes.splice(nodeIndex, 1);
-        return c;
-      }
+  createCategoryItem(id): FormGroup {
+    return this.formBuilder.group({
+      category: this.getCategoryFromId(id),
+      rank: new FormControl(null, [Validators.required]),
+      category_nodes: this.formBuilder.array([]),
     });
   }
 
-  addCategoryNode(category: ReviewedCategory) {
-    console.log(category);
-    let categoryNodes = category.category_nodes;
-    categoryNodes.push({ answer_type: 'advantage', description: '' });
-    this.reviewed_categories = this.reviewed_categories.map((c) =>
-      c.category.id === category.id
-        ? ({ ...c, category_nodes: categoryNodes } as ReviewedCategory)
-        : c
+  createCategoryNodeItem(): FormGroup {
+    return this.formBuilder.group({
+      answer_type: new FormControl('advantage'),
+      description: new FormControl('test desc'),
+    });
+  }
+
+  removeCategory(index: number, categoryId: number) {
+    let categories = this.getReviewedCategoriesArr();
+    categories.removeAt(index);
+    this.updateAvailableCategories('add', categoryId);
+  }
+
+  removeCategoryNode(categoryIndex: number, nodeIndex: number) {
+    let categories = this.getReviewedCategoriesArr();
+    categories['controls'][categoryIndex]['controls'].category_nodes.removeAt(
+      nodeIndex
     );
   }
 
-  isCategoryAvailable(id: number) {
-    return !this.reviewed_categories.some((c) => c.category.id === id);
-  }
-
-  isEveryCategorySelected() {
-    return this._categories.length === this.reviewed_categories.length;
-  }
-
-  getAvailableCategories() {
-    const revieved_categories_id = this.reviewed_categories.map(
-      (c) => c.category.id
-    );
-    return this._categories.filter(
-      (c) => !revieved_categories_id.includes(c.id)
+  addCategoryNode(categoryIndex: number) {
+    let categories = this.getReviewedCategoriesArr();
+    categories['controls'][categoryIndex]['controls'].category_nodes.push(
+      this.createCategoryNodeItem()
     );
   }
 
@@ -92,8 +83,19 @@ export class NewAnswerComponent implements OnInit {
     return this._categories.filter((c) => c.id == id)[0];
   }
 
-  updateAvailableCategories() {
-    this.available_categories = this.getAvailableCategories();
+  getReviewedCategoriesArr(): FormArray {
+    return this.newAnswerForm.get('reviewed_categories') as FormArray;
+  }
+
+  updateAvailableCategories(method: string, categoryId) {
+    if (method == 'add') {
+      this.available_categories.push(this.getCategoryFromId(categoryId));
+    }
+    if (method == 'remove') {
+      this.available_categories = this.available_categories.filter(
+        (c) => c.id !== categoryId
+      );
+    }
   }
 
   ngOnInit(): void {

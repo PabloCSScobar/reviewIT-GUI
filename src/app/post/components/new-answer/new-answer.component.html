@@ -1,65 +1,74 @@
 <div class="new-answer-form-wrapper">
-  <form>
+  <form [formGroup]="newAnswerForm">
     <p>
       <mat-form-field appearance="legacy" style="width: 100%">
         <mat-label>Ogólny opis</mat-label>
-        <input matInput required />
+        <input formControlName="description" matInput required />
       </mat-form-field>
     </p>
     <div class="category-list-wrapper">
       <div
-        *ngFor="let category of reviewed_categories"
+        formArrayName="reviewed_categories"
+        *ngFor="
+          let item of newAnswerForm.get('reviewed_categories')['controls'];
+          let i = index
+        "
         class="category-wrapper"
       >
-        <div class="category-name-wrapper">
-          <p>Kategoria: {{ category.category.name }}</p>
-          <button
-            (click)="removeCategory(category)"
-            mat-icon-button
-            color="warn"
-            aria-label="Remove category"
-          >
-            <span class="material-icons md-24"> remove </span>
-          </button>
-        </div>
-        <p>
-          <mat-form-field appearance="legacy" style="width: 100%">
-            <mat-label>Ocena</mat-label>
-            <input type="number" matInput required />
-          </mat-form-field>
-        </p>
-        <div>
-          <div class="category-nodes-wrapper">
-            <div
-              class="category-node"
-              *ngFor="let node of category.category_nodes; let i = index"
+        <div [formGroupName]="i">
+          <div class="category-name-wrapper">
+            <p>
+              Kategoria:
+              {{ item.value.category.name }}
+            </p>
+            <button
+              (click)="removeCategory(i, item.value.category.id)"
+              mat-icon-button
+              color="warn"
+              aria-label="Remove category"
             >
-              <app-category-node
-                [(value)]="category.category_nodes[i]"
-              ></app-category-node>
-              <button
-                (click)="removeCategoryNode(category, i)"
-                mat-icon-button
-                color="warn"
-                aria-label="Remove category"
-              >
-                <span class="material-icons md-24"> remove </span>
-              </button>
-            </div>
+              <span class="material-icons md-24"> remove </span>
+            </button>
           </div>
-          <button
-            (click)="addCategoryNode(category)"
-            mat-button
-            color="primary"
-          >
-            <span class="material-icons"> add </span>
-            Dodaj wpis do kategorii
-          </button>
+          <p>
+            <mat-form-field appearance="legacy" style="width: 100%">
+              <mat-label>Ocena</mat-label>
+              <input formControlName="rank" type="number" matInput required />
+            </mat-form-field>
+          </p>
+          <div>
+            <div formArrayName="category_nodes" class="category-nodes-wrapper">
+              <div
+                class="category-node"
+                *ngFor="
+                  let node of item.controls.category_nodes.controls;
+                  let j = index
+                "
+                [formGroupName]="j"
+              >
+                <app-category-node [node]="node"></app-category-node>
+                <button
+                  (click)="removeCategoryNode(i, j)"
+                  mat-icon-button
+                  color="warn"
+                  aria-label="Remove category"
+                >
+                  <span class="material-icons md-24"> remove </span>
+                </button>
+              </div>
+            </div>
+            <!-- category nodes wrapper -->
+            <button (click)="addCategoryNode(i)" mat-button color="primary">
+              <span class="material-icons"> add </span>
+              Dodaj wpis do kategorii
+            </button>
+          </div>
         </div>
+        <!-- category wrapper -->
       </div>
     </div>
-
-    <div *ngIf="!isEveryCategorySelected()" class="add-category-wrapper">
+    <!-- category list wrapper -->
+    <div *ngIf="available_categories.length" class="add-category-wrapper">
       <mat-form-field appearance="legacy" style="width: 70%">
         <mat-label>Kategorie wymagające recenzji</mat-label>
         <mat-select
@@ -67,11 +76,8 @@
           [value]="available_categories[0].id"
           required
         >
-          <ng-container *ngFor="let category of _categories">
-            <mat-option
-              *ngIf="isCategoryAvailable(category.id)"
-              [value]="category.id"
-            >
+          <ng-container *ngFor="let category of available_categories">
+            <mat-option [value]="category.id">
               {{ category.name }}
             </mat-option>
           </ng-container>
@@ -87,8 +93,9 @@
         Dodaj kategorię
       </button>
     </div>
+    <!-- category add wrapper -->
     <div class="new-answer-wrapper">
-      <button (click)="showForm()" mat-raised-button color="warn">
+      <button (click)="addAnswer()" mat-raised-button color="warn">
         <span class="material-icons"> add </span>
         Dodaj recenzję
       </button>

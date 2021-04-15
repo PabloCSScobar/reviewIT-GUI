@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { CategoryNode } from '../../models/reviewed_category';
 
 @Component({
@@ -8,24 +9,7 @@ import { CategoryNode } from '../../models/reviewed_category';
 })
 export class CategoryNodeComponent implements OnInit {
   constructor() {}
-  categoryNode: CategoryNode;
-  answer_type = true; // true - advantage
-  @Input() set value(val: CategoryNode) {
-    this.categoryNode = val;
-    this.setAnswerType(val.answer_type == 'advantage');
-  }
-  @Output() valueChange = new EventEmitter<CategoryNode>();
-
-  setAnswerType(bool: boolean) {
-    this.answer_type = bool;
-    this.categoryNode.answer_type = bool ? 'advantage' : 'disanvantage';
-    this.valueChange.emit(this.categoryNode);
-  }
-
-  onDescriptionBlur(value: string) {
-    console.log('blur');
-    this.valueChange.emit(this.categoryNode);
-  }
+  @Input() node: FormGroup;
 
   ngOnInit(): void {}
 }

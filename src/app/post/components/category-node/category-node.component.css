@@ -16,3 +16,15 @@
 .thumb-down:hover {
   color: red;
 }
+
+[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+[type="radio"] + span {
+  cursor: pointer;
+}
