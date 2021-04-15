@@ -42,6 +42,7 @@ export class NewAnswerComponent implements OnInit {
         () => this.created.emit(true),
         () => this.created.emit(false)
       );
+      this.initForm();
     } else {
       this.newAnswerForm.markAllAsTouched();
     }
@@ -108,10 +109,13 @@ export class NewAnswerComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
+  initForm() {
     this.newAnswerForm = new FormGroup({
       description: new FormControl('', [Validators.required]),
       reviewed_categories: this.formBuilder.array([]),
     });
+  }
+  ngOnInit(): void {
+    this.initForm();
   }
 }
