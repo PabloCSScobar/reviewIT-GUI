@@ -28,21 +28,14 @@ export class NewPostComponent implements OnInit {
 
   createPost() {
     console.log(this.newPostForm);
-    if (
-      this.newPostForm.pristine === false &&
-      this.newPostForm.status === 'VALID'
-    ) {
+    if (this.newPostForm.pristine === false && this.newPostForm.valid) {
       const post: PostNew = {
         ...this.newPostForm.value,
-        author: this.getAuthorId(),
       };
       this.postService.addPost(post);
     } else {
       this.newPostForm.markAllAsTouched();
     }
-  }
-  getAuthorId(): number {
-    return this.postService.getLoggedUserId();
   }
 
   ngOnInit(): void {
