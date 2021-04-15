@@ -1,4 +1,8 @@
-<div *ngFor="let post of posts">
-  <app-post [post]="post"></app-post>
-</div>
 <app-pagination></app-pagination>
+<div *ngIf="posts.length > 0">
+  <div *ngFor="let post of posts">
+    <app-post [post]="post"></app-post>
+  </div>
+</div>
+<div class="no-results" *ngIf="posts.length == 0">Brak wyników</div>
+<app-pagination *ngIf="posts.length > 5"></app-pagination>
