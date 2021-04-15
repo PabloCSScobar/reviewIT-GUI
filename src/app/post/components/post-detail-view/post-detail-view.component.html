@@ -48,6 +48,11 @@
     [categories]="post.categories"
     [answers]="post.answers"
   ></app-answer-list>
+  <app-new-answer
+    [post]="post.id"
+    [categories]="post.categories"
+    (created)="onAnswerCreated()"
+  ></app-new-answer>
 </div>
 <div>
   <!-- //TODO loading -->
