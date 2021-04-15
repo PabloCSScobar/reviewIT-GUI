@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -6,6 +6,7 @@ import {
   FormArray,
   Validators,
 } from '@angular/forms';
+import { Answer } from '../../models/answer';
 import { Category } from '../../models/category';
 import { ReviewedCategory } from '../../models/reviewed_category';
 import { PostService } from '../../services/post.service';
@@ -16,10 +17,7 @@ import { PostService } from '../../services/post.service';
   styleUrls: ['./new-answer.component.css'],
 })
 export class NewAnswerComponent implements OnInit {
-  test: any;
   available_categories: Category[];
-  reviewed_categories: ReviewedCategory[] = [];
-  // reviewed_categories_arr: FormArray;
   _categories: Category[];
   newAnswerForm: FormGroup;
 
@@ -27,25 +25,37 @@ export class NewAnswerComponent implements OnInit {
     this._categories = c;
     this.available_categories = c;
   }
-
+  @Input() post: number;
+  @Output() created: EventEmitter<boolean> = new EventEmitter();
   constructor(
     private postService: PostService,
     private formBuilder: FormBuilder
   ) {}
 
   addAnswer() {
-    console.log(this.newAnswerForm.value);
+    if (this.newAnswerForm.pristine === false && this.newAnswerForm.valid) {
+      const answer: Answer = {
+        ...this.newAnswerForm.value,
+        post: this.post,
+      };
+      this.postService.addAnswer(answer).subscribe(
+        () => this.created.emit(true),
+        () => this.created.emit(false)
+      );
+    } else {
+      this.newAnswerForm.markAllAsTouched();
+    }
   }
 
   addCategory(categoryId: number) {
     let categories = this.getReviewedCategoriesArr();
     categories.push(this.createCategoryItem(categoryId));
     this.updateAvailableCategories('remove', categoryId);
-    console.log(this.newAnswerForm);
   }
 
   createCategoryItem(id): FormGroup {
     return this.formBuilder.group({
+      post: this.post,
       category: this.getCategoryFromId(id),
       rank: new FormControl(null, [Validators.required]),
       category_nodes: this.formBuilder.array([]),
@@ -54,8 +64,8 @@ export class NewAnswerComponent implements OnInit {
 
   createCategoryNodeItem(): FormGroup {
     return this.formBuilder.group({
-      answer_type: new FormControl('advantage'),
-      description: new FormControl('test desc'),
+      answer_type: new FormControl('advantage', Validators.required),
+      description: new FormControl('', Validators.required),
     });
   }
 
