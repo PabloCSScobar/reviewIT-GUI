@@ -3,3 +3,11 @@
   justify-content: center;
   padding: 3px 0;
 }
+.full {
+  color: #facc60;
+  -webkit-text-stroke: 1px #264653a2;
+}
+.empty {
+  color: #97979781;
+  -webkit-text-stroke: 1px #264653a2;
+}
