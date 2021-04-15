@@ -1,42 +1,59 @@
 <div class="post-wrapper">
   <div class="post-leftbar">
     <div class="rank-wrapper">
-      <app-star-rating [img_x]="22" [img_y]="22" [rank]="post.rank"></app-star-rating>
+      <app-star-rating
+        [img_x]="22"
+        [img_y]="22"
+        [rank]="post.rank"
+      ></app-star-rating>
       <div class="rank-info">
         Ocena:
-        <span *ngIf="post.rank !=null"> {{post.rank}}</span>
-        <span *ngIf="post.rank ==null"> Brak</span>
+        <span *ngIf="post.rank != null">
+          {{ post.rank | number: "1.0-2" }}</span
+        >
+        <span *ngIf="post.rank == null"> Brak</span>
       </div>
     </div>
     <div class="answers-views-wrapper">
       <div class="views">
-        <div class="av-number">{{post.visits}}</div>
+        <div class="av-number">{{ post.visits }}</div>
         <div class="av-info">wizyty</div>
       </div>
       <div class="answers">
-        <div class="av-number">{{post.number_of_answers}}</div>
+        <div class="av-number">{{ post.number_of_answers }}</div>
         <div class="av-info">odpowiedzi</div>
       </div>
     </div>
   </div>
   <div class="post-details">
-    <div class="post-title"><a [routerLink]="['/post/', post.id]">{{post.title}}</a></div>
+    <div class="post-title">
+      <a [routerLink]="['/post/', post.id]">{{ post.title }}</a>
+    </div>
     <div class="project-links-wrapper">
-      <div class="page-link">Link do strony: <a class="project-link" href="#">{{post.page_link}}</a></div>
-      <div class="repo-link">Link do repozytorium: <a class="project-link" href="#">{{post.repo_link}}</a></div>
+      <div class="page-link">
+        Link do strony:
+        <a class="project-link" href="#">{{ post.page_link }}</a>
+      </div>
+      <div class="repo-link">
+        Link do repozytorium:
+        <a class="project-link" href="#">{{ post.repo_link }}</a>
+      </div>
     </div>
     <div class="post-last-activity">
       <div *ngIf="post.last_activity">
         <span class="activity-type">Odpowiedź </span>udzielona
-        <span class="activity-time">{{post.last_activity.created | timeAgo}} </span> przez
-        <span class="activity-user">{{post.last_activity.author}}</span>
+        <span class="activity-time"
+          >{{ post.last_activity.created | timeAgo }}
+        </span>
+        przez
+        <span class="activity-user">{{ post.last_activity.author }}</span>
       </div>
-      <div *ngIf="!post.last_activity">
-        Brak odpowiedzi.
-      </div>
+      <div *ngIf="!post.last_activity">Brak odpowiedzi.</div>
     </div>
     <div class="post-tags">
-      <div *ngFor="let category of post.categories" class="post-tag">{{category.name}}</div>
+      <div *ngFor="let category of post.categories" class="post-tag">
+        {{ category.name }}
+      </div>
     </div>
   </div>
 </div>
