@@ -10,6 +10,7 @@ import { PostList } from '../models/post_list';
 import { Category } from '../models/category';
 import { Pagination } from '../models/pagination';
 import { Router } from '@angular/router';
+import { Answer } from '../models/answer';
 
 @Injectable({
   providedIn: 'root',
@@ -45,6 +46,10 @@ export class PostService {
       .post<PostNew>(`${env.apiUrl}/posts/`, post)
       .pipe(tap((res) => this.router.navigate([`post/${res.id}`])))
       .toPromise();
+  }
+
+  addAnswer(answer: Answer) {
+    return this.http.post<Answer>(`${env.apiUrl}/answers/`, answer);
   }
 
   getCategories() {
