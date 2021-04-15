@@ -1,6 +1,7 @@
 .container {
   width: 1024px;
   margin: 15px auto;
+  min-height: 100vh;
 }
 
 .main-wrapper {
@@ -10,4 +11,3 @@
   align-content: stretch;
   margin: 15px auto;
 }
-
