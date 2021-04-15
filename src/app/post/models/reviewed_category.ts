@@ -7,7 +7,7 @@ export interface ReviewedCategory {
   category_nodes: CategoryNode[];
 }
 export interface CategoryNode {
-  id: number;
+  id?: number;
   description: string;
   answer_type: string;
 }
