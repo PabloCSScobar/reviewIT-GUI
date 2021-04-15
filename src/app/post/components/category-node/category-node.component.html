@@ -28,14 +28,20 @@
     </span>
   </label>
 
-  <mat-form-field appearance="legacy" style="width: 100%">
-    <mat-label>Opis</mat-label>
-    <textarea
-      formControlName="description"
-      matInput
-      cdkTextareaAutosize
-      cdkAutosizeMinRows="1"
-      cdkAutosizeMaxRows="5"
-    ></textarea>
-  </mat-form-field>
+  <div class="node-input-wrapper">
+    <mat-form-field appearance="legacy" style="width: 100%">
+      <mat-label>Opis</mat-label>
+      <textarea
+        required
+        formControlName="description"
+        matInput
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="5"
+      ></textarea>
+    </mat-form-field>
+    <app-error-message
+      [control]="node.controls['description']"
+    ></app-error-message>
+  </div>
 </div>

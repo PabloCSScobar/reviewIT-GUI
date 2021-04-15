@@ -28,3 +28,6 @@
 [type="radio"] + span {
   cursor: pointer;
 }
+.node-input-wrapper {
+  flex-grow: 1;
+}
