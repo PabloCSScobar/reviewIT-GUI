@@ -32,3 +32,10 @@
 app-category-node {
   flex-grow: 1;
 }
+.new-answer-header {
+  background: #264653;
+  padding: 15px;
+  color: white;
+
+  font-weight: 700;
+}
