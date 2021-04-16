@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="router.url == '/list'" class="container">
   <div
     [ngClass]="{ active: isActive(ordering.date) }"
     (click)="setSorting(ordering.date)"

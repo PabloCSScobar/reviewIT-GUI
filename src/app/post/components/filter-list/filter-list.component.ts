@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PostService } from '../../services/post.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class FilterListComponent implements OnInit {
   //set default ordering
   selected_ordering = this.ordering.date;
 
-  constructor(private postService: PostService) {}
+  constructor(private postService: PostService, public router: Router) {}
 
   setSorting(key) {
     this.selected_ordering = key;
