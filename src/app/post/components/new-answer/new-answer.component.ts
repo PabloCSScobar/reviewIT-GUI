@@ -58,7 +58,11 @@ export class NewAnswerComponent implements OnInit {
     return this.formBuilder.group({
       post: this.post,
       category: this.getCategoryFromId(id),
-      rank: new FormControl(null, [Validators.required]),
+      rank: new FormControl(null, [
+        Validators.required,
+        Validators.min(1),
+        Validators.max(5),
+      ]),
       category_nodes: this.formBuilder.array([]),
     });
   }
@@ -111,7 +115,10 @@ export class NewAnswerComponent implements OnInit {
 
   initForm() {
     this.newAnswerForm = new FormGroup({
-      description: new FormControl('', [Validators.required]),
+      description: new FormControl('', [
+        Validators.required,
+        Validators.minLength(10),
+      ]),
       reviewed_categories: this.formBuilder.array([]),
     });
   }
