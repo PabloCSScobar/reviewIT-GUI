@@ -1,25 +1,29 @@
 .search-wrapper {
-  display: flex;
-  padding: 10px;
   background-color: #264653;
-  margin-bottom: 15px;
+  margin-bottom: 4px;
+  width: 100%;
+
+  display: flex;
   justify-content: center;
-  height: 4em;
-}
-input {
-  align-self: center;
-  height: 2.2em;
-  padding: 2px;
-  margin: 0;
-  font-size: 1em;
-  border: #e2e2e2;
 }
 .search-icon {
+  color: black;
+  margin-right: 4px;
+  font-size: 26px;
+  position: relative;
+  top: 6px;
+}
+.search-field .mat-form-field-wrapper {
+  margin-bottom: -1.25em;
+}
+.search-field {
+  background-color: #fff;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: white;
-  margin-left: 12px;
-  cursor: pointer;
-  font-size: 28px;
+  align-self: center;
+}
+.search-form {
+  width: 90%;
+  padding: 15px 0;
 }

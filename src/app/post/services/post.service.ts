@@ -21,6 +21,7 @@ export class PostService {
   posts = new BehaviorSubject<Post[]>([]);
   ordering = 'date'; //default order
   categoryFilter = null;
+  searchText;
   constructor(private http: HttpClient, private router: Router) {}
 
   getPost(id) {
@@ -34,6 +35,8 @@ export class PostService {
           page: `${page}`,
           ordering: this.ordering,
           ...(this.categoryFilter && { category: this.categoryFilter }), //add category param only if categoryFilter !=null
+          ...(this.searchText &&
+            this.searchText != '' && { search: this.searchText }), //add searchtext param only if search !=null and not empty
         },
       })
       .pipe(tap((res) => this.pagination.next(res.pagination)))
