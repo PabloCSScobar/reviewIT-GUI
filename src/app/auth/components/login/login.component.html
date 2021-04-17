@@ -1,0 +1,51 @@
+<fieldset class="login-container">
+  <form [formGroup]="loginForm" class="login-form">
+    <mat-form-field appearance="legacy">
+      <input
+        matInput
+        name="username"
+        placeholder="Nazwa użytkownika"
+        required
+        formControlName="username"
+      />
+      <mat-error>
+        <app-error-message
+          [control]="loginForm.controls['username']"
+        ></app-error-message>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <input
+        matInput
+        name="password"
+        placeholder="Hasło"
+        [type]="hide ? 'password' : 'text'"
+        required
+        autocomplete="off"
+        formControlName="password"
+      />
+      <mat-error>
+        <app-error-message
+          [control]="loginForm.controls['password']"
+        ></app-error-message>
+      </mat-error>
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary">Zaloguj</button>
+    <p class="register-link">
+      <a [routerLink]="['/auth/register']"
+        >Nie masz jeszcze konta? Zarejestruj się!</a
+      >
+    </p>
+  </form>
+</fieldset>

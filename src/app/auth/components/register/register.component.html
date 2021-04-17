@@ -1,0 +1,55 @@
+<fieldset class="register-container">
+  <form class="register-form">
+    <mat-form-field appearance="legacy">
+      <input
+        matInput
+        name="username"
+        placeholder="Nazwa użytkownika"
+        required
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <input
+        matInput
+        name="password"
+        placeholder="Hasło"
+        [type]="hide ? 'password' : 'text'"
+        required
+        autocomplete="off"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <input
+        matInput
+        name="password"
+        placeholder="Potwierdź hasło"
+        [type]="hide ? 'password' : 'text'"
+        required
+        autocomplete="off"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-raised-button color="primary">Utwórz konto</button>
+    <p class="login-link">
+      <a [routerLink]="['/auth/login']">Masz już konto? Zaloguj się tutaj!</a>
+    </p>
+  </form>
+</fieldset>
