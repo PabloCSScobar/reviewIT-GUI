@@ -1,1 +1,6 @@
-{{ errorMessage }}
+<ng-container *ngIf="!html">
+  {{ errorMessage }}
+</ng-container>
+<ng-container *ngIf="html">
+  <span class="error-msg"> {{ errorMessage }}</span>
+</ng-container>
