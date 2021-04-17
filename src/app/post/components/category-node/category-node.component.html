@@ -39,9 +39,11 @@
         cdkAutosizeMinRows="1"
         cdkAutosizeMaxRows="5"
       ></textarea>
+      <mat-error>
+        <app-error-message
+          [control]="node.controls['description']"
+        ></app-error-message>
+      </mat-error>
     </mat-form-field>
-    <app-error-message
-      [control]="node.controls['description']"
-    ></app-error-message>
   </div>
 </div>

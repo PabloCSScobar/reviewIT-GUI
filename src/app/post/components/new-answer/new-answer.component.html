@@ -5,10 +5,12 @@
       <mat-form-field appearance="legacy" style="width: 100%">
         <mat-label>Ogólny opis</mat-label>
         <input formControlName="description" matInput required />
+        <mat-error>
+          <app-error-message
+            [control]="newAnswerForm.controls['description']"
+          ></app-error-message>
+        </mat-error>
       </mat-form-field>
-      <app-error-message
-        [control]="newAnswerForm.controls['description']"
-      ></app-error-message>
     </p>
     <div class="category-list-wrapper">
       <div
@@ -38,10 +40,12 @@
             <mat-form-field appearance="legacy" style="width: 100%">
               <mat-label>Ocena</mat-label>
               <input formControlName="rank" type="number" matInput required />
+              <mat-error>
+                <app-error-message
+                  [control]="item.controls['rank']"
+                ></app-error-message>
+              </mat-error>
             </mat-form-field>
-            <app-error-message
-              [control]="item.controls['rank']"
-            ></app-error-message>
           </p>
           <div>
             <div formArrayName="category_nodes" class="category-nodes-wrapper">
