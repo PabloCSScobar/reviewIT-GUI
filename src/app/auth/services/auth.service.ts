@@ -25,20 +25,25 @@ export class AuthService {
   }
 
   login(loginData) {
-    return this.http.post<any>(`${env.apiUrl}/auth/`, loginData).pipe(
-      // tap( data => this.setToken(data.token)),
-      tap((data) => this.router.navigate(['list']))
+    console.log('login');
+    return this.http.post<any>(env.authUrl, loginData).pipe(
+      tap((data) => this.setToken(data.token)),
+      tap(() => this.router.navigate(['list']))
     );
   }
 
   logout() {
-    // this.cookieService.delete('Token');
+    this.cookieService.delete('Token');
     this.router.navigate(['auth/login']);
   }
 
   register(registerData) {
-    // return this.http.post(`${environment.apiUrl}/api/users/`, registerData).pipe(
-    //   tap( () => this.router.navigate(['auth/login'], {queryParams: { registered: 'true' } }))
-    // );
+    return this.http.post(`${env.apiUrl}/users/`, registerData).pipe(
+      tap(() =>
+        this.router.navigate(['auth/login'], {
+          queryParams: { registered: true },
+        })
+      )
+    );
   }
 }
