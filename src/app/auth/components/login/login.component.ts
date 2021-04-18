@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.loginForm.valid) {
-      console.log(this.loginForm);
       this.authService.login(this.loginForm.value).subscribe(
         () => {},
         (err) => {
@@ -35,7 +34,19 @@ export class LoginComponent implements OnInit {
           }
         }
       );
+    } else {
+      this.loginForm.markAsTouched();
     }
+  }
+
+  getQueryParams() {
+    this.route.queryParams.subscribe((params) => {
+      if (params.registered !== undefined && params.registered === true) {
+        this.registerMessage = true;
+      } else {
+        this.registerMessage = false;
+      }
+    });
   }
 
   ngOnInit(): void {}
