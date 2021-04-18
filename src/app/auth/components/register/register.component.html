@@ -43,15 +43,9 @@
         autocomplete="off"
         formControlName="password"
       />
-      <button
-        mat-icon-button
-        matSuffix
-        (click)="hide = !hide"
-        [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide"
-      >
-        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-      </button>
+      <mat-icon matSuffix (click)="hide = !hide">{{
+        hide ? "visibility_off" : "visibility"
+      }}</mat-icon>
       <mat-error>
         <app-error-message
           [control]="registerForm.controls['password']"
@@ -62,21 +56,15 @@
       <input
         matInput
         name="password"
-        placeholder="Potwierdź hasło"
+        placeholder="Hasło"
         [type]="hide ? 'password' : 'text'"
         required
         autocomplete="off"
         formControlName="confirm_password"
       />
-      <button
-        mat-icon-button
-        matSuffix
-        (click)="hide = !hide"
-        [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide"
-      >
-        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-      </button>
+      <mat-icon matSuffix (click)="hide = !hide">{{
+        hide ? "visibility_off" : "visibility"
+      }}</mat-icon>
       <mat-error>
         <app-error-message
           [control]="registerForm.controls['confirm_password']"
