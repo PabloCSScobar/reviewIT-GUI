@@ -21,7 +21,8 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    return this.getToken() !== null;
+    const token = this.getToken();
+    return token !== null && token !== '';
   }
 
   getToken() {
