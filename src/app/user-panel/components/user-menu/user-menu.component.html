@@ -1,0 +1,17 @@
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="menu"
+  aria-label="Example icon-button with a menu"
+>
+  <span class="material-icons menu-icon"> expand_more </span>
+</button>
+<mat-menu #menu="matMenu" xPosition="before">
+  <button mat-menu-item>
+    <mat-icon color="primary">manage_accounts</mat-icon>
+    <span>Szczegóły konta</span>
+  </button>
+  <button mat-menu-item (click)="logout()">
+    <mat-icon color="primary">logout</mat-icon>
+    <span>Wyloguj</span>
+  </button>
+</mat-menu>

@@ -27,6 +27,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { NewPostComponent } from './components/new-post/new-post.component';
 import { NewAnswerComponent } from './components/new-answer/new-answer.component';
 import { CategoryNodeComponent } from './components/category-node/category-node.component';
+import { UserPanelModule } from '../user-panel/user-panel.module';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { CategoryNodeComponent } from './components/category-node/category-node.
     NewAnswerComponent,
     CategoryNodeComponent,
   ],
-  imports: [CommonModule, PostRoutingModule, SharedModule],
+  imports: [CommonModule, PostRoutingModule, SharedModule, UserPanelModule],
   exports: [ContainerComponent],
 })
 export class PostModule {}

@@ -2,7 +2,12 @@
   <nav>
     <div class="logo">
       <a [routerLink]="['/list']">
-        <h1>Review-<span class="logo-bold">IT</span></h1>
+        <img
+          class="logo-img"
+          src="../../../../assets/logo-small.png"
+          alt=""
+          srcset=""
+        />
       </a>
     </div>
     <ul class="menu">
@@ -17,6 +22,6 @@
       </div>
     </div>
 
-    <div class="user-info">USER</div>
+    <app-header-container></app-header-container>
   </nav>
 </header>
