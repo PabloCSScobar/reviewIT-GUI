@@ -1,0 +1,85 @@
+<fieldset class="register-container">
+  <div class="login-errors">
+    <app-error-message *ngIf="errorMessage != null">
+      <div *ngIf="errorMessage.status == 400 && errorMessage.error.username">
+        Podana nazwa użytkownika jest już w systemie.
+      </div>
+      <div *ngIf="errorMessage.status == 400 && !errorMessage.error.username">
+        Wprowadzono błędne dane.
+      </div>
+      <div *ngIf="errorMessage.status == 0">Brak połączenia z serwerem.</div>
+      <div *ngIf="errorMessage.status != 400 && errorMessage.status != 0">
+        Nieznany błąd! Skontaktuj się z administratorem.
+      </div>
+    </app-error-message>
+  </div>
+  <form
+    [formGroup]="registerForm"
+    class="register-form"
+    (ngSubmit)="register()"
+  >
+    <mat-form-field appearance="legacy">
+      <input
+        matInput
+        name="username"
+        placeholder="Nazwa użytkownika"
+        required
+        autocomplete="off"
+        formControlName="username"
+      />
+      <mat-error>
+        <app-error-message
+          [control]="registerForm.controls['username']"
+        ></app-error-message>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <input
+        matInput
+        name="password"
+        placeholder="Hasło"
+        [type]="hide ? 'password' : 'text'"
+        required
+        autocomplete="off"
+        formControlName="password"
+      />
+      <mat-icon matSuffix (click)="hide = !hide">{{
+        hide ? "visibility_off" : "visibility"
+      }}</mat-icon>
+      <mat-error>
+        <app-error-message
+          [control]="registerForm.controls['password']"
+        ></app-error-message>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <input
+        matInput
+        name="password"
+        placeholder="Hasło"
+        [type]="hide ? 'password' : 'text'"
+        required
+        autocomplete="off"
+        formControlName="confirm_password"
+      />
+      <mat-icon matSuffix (click)="hide = !hide">{{
+        hide ? "visibility_off" : "visibility"
+      }}</mat-icon>
+      <mat-error>
+        <app-error-message
+          [control]="registerForm.controls['confirm_password']"
+        ></app-error-message>
+      </mat-error>
+    </mat-form-field>
+    <app-error-message
+      [control]="registerForm"
+      [html]="true"
+    ></app-error-message>
+    <button type="submit" mat-raised-button color="primary">
+      Utwórz konto
+    </button>
+    <p class="login-link">
+      <a [routerLink]="['/auth/login']">Masz już konto? Zaloguj się tutaj!</a>
+    </p>
+  </form>
+</fieldset>

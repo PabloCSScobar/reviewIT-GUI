@@ -1,0 +1,25 @@
+.register-form {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+.register-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-link {
+  margin-top: 10px;
+}
+.login-link a {
+  color: #009b89;
+  text-decoration: none;
+}
+.login-link a:hover {
+  color: #06ccb5;
+}
+.login-errors {
+  width: 70%;
+}

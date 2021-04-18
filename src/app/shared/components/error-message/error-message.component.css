@@ -1,4 +1,7 @@
-.errorMessage {
+.error-msg {
   color: #a53b39;
+  display: inline-block;
   font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

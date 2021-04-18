@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalam&display=swap");
+.container {
+  display: flex;
+}
+.leftbar {
+  width: 100%;
+  background-image: url("../../../../assets/auth-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+.rightbar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+}
+.header h1 {
+  font-size: 8rem;
+  font-weight: 500;
+  color: #264653;
+}
+.header-span {
+  font-weight: 400;
+  color: #1b313a;
+}
+.form {
+  height: 100%;
+}

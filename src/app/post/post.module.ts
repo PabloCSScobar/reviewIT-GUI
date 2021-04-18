@@ -22,16 +22,6 @@ import { PostUserComponent } from './components/post-user/post-user.component';
 import { CategoryReviewComponent } from './components/category-review/category-review.component';
 import { LoggedUsersComponent } from './components/logged-users/logged-users.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
-//material
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButtonModule } from '@angular/material/button';
-
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { NewPostComponent } from './components/new-post/new-post.component';
@@ -64,20 +54,7 @@ import { CategoryNodeComponent } from './components/category-node/category-node.
     NewAnswerComponent,
     CategoryNodeComponent,
   ],
-  imports: [
-    CommonModule,
-    PostRoutingModule,
-    SharedModule,
-    MatPaginatorModule,
-    MatTooltipModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatSelectModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    FormsModule,
-  ],
+  imports: [CommonModule, PostRoutingModule, SharedModule],
   exports: [ContainerComponent],
 })
 export class PostModule {}

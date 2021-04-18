@@ -11,6 +11,7 @@ export class ErrorMessageComponent {
   constructor() {}
 
   @Input() control: FormGroup | FormControl;
+  @Input() html: boolean;
 
   get errorMessage() {
     for (const key in this.control.errors) {
