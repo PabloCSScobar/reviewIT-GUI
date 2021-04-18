@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
 
   getQueryParams() {
     this.route.queryParams.subscribe((params) => {
-      if (params.registered !== undefined && params.registered === true) {
+      if (params.registered !== undefined && params.registered == 'true') {
         this.registerMessage = true;
       } else {
         this.registerMessage = false;
@@ -49,5 +49,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getQueryParams();
+  }
 }
