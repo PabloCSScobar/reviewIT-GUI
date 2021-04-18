@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { environment as env } from '../../../environments/environment';
@@ -20,11 +20,15 @@ export class AuthService {
     this.cookieService.set('Token', token);
   }
 
+  isAuthenticated(): boolean {
+    return this.getToken() !== null;
+  }
+
   getToken() {
     return this.cookieService.get('Token');
   }
 
-  login(loginData) {
+  login(loginData): Observable<any> {
     console.log('login');
     return this.http.post<any>(env.authUrl, loginData).pipe(
       tap((data) => this.setToken(data.token)),
@@ -37,7 +41,7 @@ export class AuthService {
     this.router.navigate(['auth/login']);
   }
 
-  register(registerData) {
+  register(registerData): Observable<any> {
     return this.http.post(`${env.apiUrl}/users/`, registerData).pipe(
       tap(() =>
         this.router.navigate(['auth/login'], {
