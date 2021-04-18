@@ -20,45 +20,7 @@ const routes: Routes = [
   {
     path: '',
     component: ContainerComponent,
-    children: [
-      {
-        path: 'list',
-        component: PostListComponent,
-        pathMatch: 'full',
-        resolve: {
-          posts: PostsResolver,
-        },
-      },
-      {
-        path: 'post',
-        redirectTo: '/list',
-        pathMatch: 'full',
-        resolve: {
-          posts: PostsResolver,
-        },
-      },
-      {
-        path: 'post/:id',
-        component: PostDetailViewComponent,
-        pathMatch: 'full',
-      },
-      {
-        path: 'new-post',
-        component: NewPostComponent,
-        pathMatch: 'full',
-        resolve: {
-          categories: CategoriesResolver,
-        },
-      },
-      {
-        path: '**',
-        redirectTo: '/list',
-        pathMatch: 'full',
-        resolve: {
-          posts: PostsResolver,
-        },
-      },
-    ],
+    loadChildren: () => import('./post/post.module').then((m) => m.PostModule),
   },
 ];
 
