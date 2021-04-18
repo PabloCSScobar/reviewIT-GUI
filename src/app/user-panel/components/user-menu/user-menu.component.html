@@ -6,10 +6,13 @@
   <span class="material-icons menu-icon"> expand_more </span>
 </button>
 <mat-menu #menu="matMenu" xPosition="before">
-  <button mat-menu-item>
-    <mat-icon color="primary">manage_accounts</mat-icon>
-    <span>Szczegóły konta</span>
-  </button>
+  <a [routerLink]="['/profile']">
+    <button mat-menu-item>
+      <mat-icon color="primary">manage_accounts</mat-icon>
+      <span>Szczegóły konta</span>
+    </button></a
+  >
+
   <button mat-menu-item (click)="logout()">
     <mat-icon color="primary">logout</mat-icon>
     <span>Wyloguj</span>
