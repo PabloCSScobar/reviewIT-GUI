@@ -15,26 +15,7 @@ const routes: Routes = [
   {
     path: 'auth',
     component: AuthContainerComponent,
-    children: [
-      {
-        path: '',
-        redirectTo: 'login',
-        pathMatch: 'full',
-      },
-      {
-        path: 'login',
-        component: LoginComponent,
-        pathMatch: 'full',
-      },
-      {
-        path: 'register',
-        component: RegisterComponent,
-      },
-      {
-        path: '**',
-        redirectTo: 'login',
-      },
-    ],
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: '',
