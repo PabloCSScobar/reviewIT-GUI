@@ -1,5 +1,22 @@
 <fieldset class="login-container">
-  <form [formGroup]="loginForm" class="login-form">
+  <div class="welcome-message">
+    <p *ngIf="!registerMessage">Witaj ponownie!</p>
+    <p *ngIf="registerMessage">
+      Zostałeś pomyślnie zarejestrowany, możesz się zalogować!
+    </p>
+  </div>
+  <div class="login-errors">
+    <app-error-message *ngIf="errorMessage != null">
+      <div *ngIf="errorMessage.status == 400">
+        Nazwa użytkownika lub hasło są niepoprawne.
+      </div>
+      <div *ngIf="errorMessage.status == 0">Brak połączenia z serwerem.</div>
+      <div *ngIf="errorMessage.status != 400 && errorMessage.status != 0">
+        Nieznany błąd! Skontaktuj się z administratorem.
+      </div>
+    </app-error-message>
+  </div>
+  <form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()">
     <mat-form-field appearance="legacy">
       <input
         matInput
@@ -25,22 +42,16 @@
         autocomplete="off"
         formControlName="password"
       />
+      <mat-icon matSuffix (click)="hide = !hide">{{
+        hide ? "visibility_off" : "visibility"
+      }}</mat-icon>
       <mat-error>
         <app-error-message
           [control]="loginForm.controls['password']"
         ></app-error-message>
       </mat-error>
-      <button
-        mat-icon-button
-        matSuffix
-        (click)="hide = !hide"
-        [attr.aria-label]="'Hide password'"
-        [attr.aria-pressed]="hide"
-      >
-        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
-      </button>
     </mat-form-field>
-    <button mat-raised-button color="primary">Zaloguj</button>
+    <button mat-raised-button color="primary" type="submit">Zaloguj</button>
     <p class="register-link">
       <a [routerLink]="['/auth/register']"
         >Nie masz jeszcze konta? Zarejestruj się!</a

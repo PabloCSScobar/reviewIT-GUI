@@ -1,5 +1,23 @@
 <fieldset class="register-container">
-  <form [formGroup]="registerForm" class="register-form">
+  <div class="login-errors">
+    <app-error-message *ngIf="errorMessage != null">
+      <div *ngIf="errorMessage.status == 400 && errorMessage.error.username">
+        Podana nazwa użytkownika jest już w systemie.
+      </div>
+      <div *ngIf="errorMessage.status == 400 && !errorMessage.error.username">
+        Wprowadzono błędne dane.
+      </div>
+      <div *ngIf="errorMessage.status == 0">Brak połączenia z serwerem.</div>
+      <div *ngIf="errorMessage.status != 400 && errorMessage.status != 0">
+        Nieznany błąd! Skontaktuj się z administratorem.
+      </div>
+    </app-error-message>
+  </div>
+  <form
+    [formGroup]="registerForm"
+    class="register-form"
+    (ngSubmit)="register()"
+  >
     <mat-form-field appearance="legacy">
       <input
         matInput
@@ -69,7 +87,9 @@
       [control]="registerForm"
       [html]="true"
     ></app-error-message>
-    <button mat-raised-button color="primary">Utwórz konto</button>
+    <button type="submit" mat-raised-button color="primary">
+      Utwórz konto
+    </button>
     <p class="login-link">
       <a [routerLink]="['/auth/login']">Masz już konto? Zaloguj się tutaj!</a>
     </p>
