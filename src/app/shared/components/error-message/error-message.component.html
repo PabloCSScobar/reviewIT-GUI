@@ -1,6 +1,11 @@
-<ng-container *ngIf="!html">
-  {{ errorMessage }}
+<ng-container *ngIf="control">
+  <ng-container *ngIf="!html">
+    {{ errorMessage }}
+  </ng-container>
+  <ng-container *ngIf="html">
+    <span class="error-msg"> {{ errorMessage }}</span>
+  </ng-container>
 </ng-container>
-<ng-container *ngIf="html">
-  <span class="error-msg"> {{ errorMessage }}</span>
+<ng-container *ngIf="!control">
+  <span class="error-msg"><ng-content></ng-content></span>
 </ng-container>
