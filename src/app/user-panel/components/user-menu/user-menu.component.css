@@ -4,3 +4,6 @@
   position: relative;
   bottom: 2px;
 }
+a {
+  text-decoration: none;
+}
