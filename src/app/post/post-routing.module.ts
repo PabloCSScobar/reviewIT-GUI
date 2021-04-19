@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserDetailsComponent } from '../user-panel/components/user-details/user-details.component';
+import { userResolver } from '../user-panel/services/user.resolver';
 import { NewPostComponent } from './components/new-post/new-post.component';
 import { PostDetailViewComponent } from './components/post-detail-view/post-detail-view.component';
 import { PostListComponent } from './components/post-list/post-list.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
     pathMatch: 'full',
     resolve: {
       posts: PostsResolver,
+      user: userResolver,
     },
   },
   {
