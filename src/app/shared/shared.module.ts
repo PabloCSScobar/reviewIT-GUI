@@ -13,8 +13,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
+import { CutStringPipe } from './pipes/cut-string.pipe';
 @NgModule({
-  declarations: [TimeAgoPipe, ErrorMessageComponent],
+  declarations: [TimeAgoPipe, ErrorMessageComponent, StarRatingComponent, CutStringPipe],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -44,6 +46,7 @@ import { MatMenuModule } from '@angular/material/menu';
     ReactiveFormsModule,
     FormsModule,
     MatMenuModule,
+    CutStringPipe,
   ],
 })
 export class SharedModule {}
