@@ -33,6 +33,7 @@ import { MatMenuModule } from '@angular/material/menu';
     HttpClientModule,
     TimeAgoPipe,
     ErrorMessageComponent,
+    StarRatingComponent,
     MatPaginatorModule,
     MatTooltipModule,
     MatFormFieldModule,

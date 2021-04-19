@@ -21,7 +21,6 @@ import { AnswerComponent } from './components/answer/answer.component';
 import { PostUserComponent } from './components/post-user/post-user.component';
 import { CategoryReviewComponent } from './components/category-review/category-review.component';
 import { LoggedUsersComponent } from './components/logged-users/logged-users.component';
-import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { NewPostComponent } from './components/new-post/new-post.component';
@@ -49,7 +48,6 @@ import { UserPanelModule } from '../user-panel/user-panel.module';
     PostUserComponent,
     CategoryReviewComponent,
     LoggedUsersComponent,
-    StarRatingComponent,
     PaginationComponent,
     NewPostComponent,
     NewAnswerComponent,
