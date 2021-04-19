@@ -7,19 +7,28 @@
 <h3>Utworzone posty</h3>
 <ul>
   <li class="post-item" *ngFor="let post of posts$ | async">
-    <a class="post-link" [routerLink]="['/post/', post.id]">{{
-      post.title | cutString: "25"
-    }}</a>
+    <div>
+      <a class="post-link" [routerLink]="['/post/', post.id]">{{
+        post.title | cutString: "25"
+      }}</a>
+      <p class="item-created">
+        Stworzono: {{ post.created | date: "d-MM-yyyy hh:mm" }}
+      </p>
+    </div>
     <app-star-rating [rank]="post.rank"></app-star-rating>
   </li>
 </ul>
 <h3>Dodane recenzje</h3>
 <ul>
   <li class="post-item" *ngFor="let answer of answers$ | async">
-    <a class="post-link" [routerLink]="['/post/', answer.post]">{{
-      answer.description | cutString: "25"
-    }}</a>
-
+    <div>
+      <a class="post-link" [routerLink]="['/post/', answer.post]">{{
+        answer.description | cutString: "25"
+      }}</a>
+      <p class="item-created">
+        Stworzono: {{ answer.created | date: "d-MM-yyyy hh:mm" }}
+      </p>
+    </div>
     <app-star-rating
       *ngIf="answer.rank && answer.rank > 0"
       [rank]="answer.rank"
@@ -33,9 +42,14 @@
 <ul>
   <ng-container *ngFor="let answer of answers$ | async">
     <li class="post-item" *ngIf="answer.is_top_answer">
-      <a class="post-link" [routerLink]="['/post/', answer.post]">{{
-        answer.description | cutString: "25"
-      }}</a>
+      <div>
+        <a class="post-link" [routerLink]="['/post/', answer.post]">{{
+          answer.description | cutString: "25"
+        }}</a>
+        <p class="item-created">
+          Stworzono: {{ answer.created | date: "d-MM-yyyy hh:mm" }}
+        </p>
+      </div>
       <app-star-rating
         *ngIf="answer.rank && answer.rank > 0"
         [rank]="answer.rank"
