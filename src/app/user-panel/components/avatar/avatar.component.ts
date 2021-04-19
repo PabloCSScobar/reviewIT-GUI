@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Profile } from '../../models/profile';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -8,12 +10,14 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./avatar.component.css'],
 })
 export class AvatarComponent implements OnInit {
-  username: Observable<any> = null;
+  username: Observable<string> = null;
 
   constructor(private userService: UserService) {}
 
   getUsername() {
-    this.username = this.userService.getUsername();
+    this.username = this.userService
+      .getUsername()
+      .pipe(map((res) => res.username));
   }
   ngOnInit(): void {
     this.getUsername();
