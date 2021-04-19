@@ -15,13 +15,34 @@
 </ul>
 <h3>Dodane recenzje</h3>
 <ul>
-  <li *ngFor="let answer of answers$ | async">{{ answer.description }}</li>
+  <li class="post-item" *ngFor="let answer of answers$ | async">
+    <a class="post-link" [routerLink]="['/post/', answer.post]">{{
+      answer.description | cutString: "25"
+    }}</a>
+
+    <app-star-rating
+      *ngIf="answer.rank && answer.rank > 0"
+      [rank]="answer.rank"
+    ></app-star-rating>
+    <p class="no-rank" *ngIf="answer.rank == null || answer.rank == 0">
+      Brak oceny
+    </p>
+  </li>
 </ul>
 <h3>Recenzje oznaczone jako najlepsze</h3>
 <ul>
   <ng-container *ngFor="let answer of answers$ | async">
-    <li *ngIf="answer.is_top_answer">
-      {{ answer.description }}
+    <li class="post-item" *ngIf="answer.is_top_answer">
+      <a class="post-link" [routerLink]="['/post/', answer.post]">{{
+        answer.description | cutString: "25"
+      }}</a>
+      <app-star-rating
+        *ngIf="answer.rank && answer.rank > 0"
+        [rank]="answer.rank"
+      ></app-star-rating>
+      <p class="no-rank" *ngIf="answer.rank == null || answer.rank == 0">
+        Brak oceny
+      </p>
     </li>
   </ng-container>
 </ul>
