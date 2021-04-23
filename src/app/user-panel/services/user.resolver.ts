@@ -5,19 +5,26 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class userResolver implements Resolve<any> {
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private authService: AuthService
+  ) {}
 
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<any> | Promise<any> | any {
-    if (this.userService.user.getValue() == null) {
+    if (
+      this.userService.user.getValue() == null &&
+      this.authService.isAuthenticated()
+    ) {
       return this.userService.getUsername();
     }
     return true;
