@@ -33,6 +33,7 @@ app-category-node {
   flex-grow: 1;
 }
 .new-answer-header {
+  margin-top: 2px;
   background: #264653;
   padding: 15px;
   color: white;

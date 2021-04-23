@@ -3,7 +3,7 @@ import { ReviewedCategory } from './reviewed_category';
 
 export interface Answer {
   id?: number;
-  author: PostUser | number;
+  author: PostUser;
   created?: string;
   rank: number;
   is_top_answer?: boolean;
