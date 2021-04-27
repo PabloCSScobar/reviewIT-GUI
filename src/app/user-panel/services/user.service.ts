@@ -16,13 +16,9 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getUsername() {
-    if (!this.user.getValue()) {
-      return this.http
-        .get<Profile>(`${env.apiUrl}/profile/get_profile_info`)
-        .pipe(tap((res) => this.user.next(res)));
-    } else {
-      return this.user;
-    }
+    return this.http
+      .get<Profile>(`${env.apiUrl}/profile/get_profile_info`)
+      .pipe(tap((res) => this.user.next(res)));
   }
 
   getPosts() {
