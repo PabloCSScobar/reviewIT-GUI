@@ -21,10 +21,7 @@ export class userResolver implements Resolve<any> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<any> | Promise<any> | any {
-    if (
-      this.userService.user.getValue() == null &&
-      this.authService.isAuthenticated()
-    ) {
+    if (this.authService.isAuthenticated()) {
       return this.userService.getUsername();
     }
     return true;
