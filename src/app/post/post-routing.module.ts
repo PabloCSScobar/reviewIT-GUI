@@ -50,9 +50,6 @@ const routes: Routes = [
     path: '**',
     redirectTo: '/list',
     pathMatch: 'full',
-    resolve: {
-      posts: PostsResolver,
-    },
   },
 ];
 
