@@ -6,18 +6,11 @@ import { AuthContainerComponent } from './pages/auth-container/auth-container.co
 import { AuthRoutingModule } from './auth-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, AuthContainerComponent],
   imports: [CommonModule, AuthRoutingModule, SharedModule],
   exports: [AuthContainerComponent],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true,
-    },
-  ],
+  providers: [],
 })
 export class AuthModule {}

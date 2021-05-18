@@ -48,15 +48,18 @@ nav {
   align-items: center;
   justify-content: center;
 }
-.new-question-wrapper {
+.new-question-wrapper,
+.log-in-wrapper {
   display: flex;
   align-items: baseline;
   justify-content: baseline;
-  margin-right: 70px;
+  margin-right: 20px;
   padding: 10px;
   cursor: pointer;
 }
-.ask-question {
+
+.ask-question,
+.log-in {
   display: flex;
   margin-left: 10px;
   vertical-align: 1px;
@@ -65,8 +68,23 @@ nav {
   text-decoration: none;
   color: #f4a261;
 }
+.log-in > span > a {
+  text-decoration: none;
+  color: #2a9d8f;
+}
 .question-icon {
   position: relative;
   top: 4px;
   color: #f4a261;
+}
+.log-in-icon {
+  padding-left: 5px;
+}
+.logo-img {
+  width: 10rem;
+}
+.logged-user-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

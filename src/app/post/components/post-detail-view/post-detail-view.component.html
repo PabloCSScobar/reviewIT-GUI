@@ -48,11 +48,31 @@
     [categories]="post.categories"
     [answers]="post.answers"
   ></app-answer-list>
-  <app-new-answer
-    [post]="post.id"
-    [categories]="post.categories"
-    (created)="onAnswerCreated()"
-  ></app-new-answer>
+  <div *ngIf="!isAuthenticated">
+    <div class="log-in-wrapper">
+      <span
+        ><a [routerLink]="['/auth/login']">
+          <button mat-raised-button color="warn">
+            Zaloguj się aby dodać recenzję<span
+              class="material-icons log-in-icon"
+            >
+              login
+            </span>
+          </button></a
+        ></span
+      >
+    </div>
+  </div>
+  <div *ngIf="isAuthenticated">
+    <app-new-answer
+      *ngIf="!isAnswerProvided()"
+      [post]="post.id"
+      [categories]="post.categories"
+    ></app-new-answer>
+    <div *ngIf="isAnswerProvided()" class="answer-provided-wrapper">
+      Dodałeś już swoją recenzję
+    </div>
+  </div>
 </div>
 <div>
   <!-- //TODO loading -->

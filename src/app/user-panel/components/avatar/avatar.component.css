@@ -1,0 +1,14 @@
+.user-wrapper {
+  height: 100%;
+}
+.img-profile {
+  height: 2.3rem;
+  width: 2.3rem;
+  position: relative;
+  bottom: 2px;
+}
+.username {
+  font-weight: 300;
+  color: rgb(236, 236, 236);
+  margin-left: 10px;
+}

@@ -1,0 +1,37 @@
+:host {
+  padding: 10px;
+}
+.reputation-header {
+  margin-bottom: 10px;
+}
+h2 {
+  font-size: 28px;
+  color: #264653;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+h3 {
+  font-size: 20px;
+  color: #264653;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+.no-rank {
+  font-size: 16px;
+}
+.post-link {
+  text-decoration: none;
+  color: #2a9d8f;
+}
+.post-item {
+  display: flex;
+  padding: 4px 15px 6px 0;
+  min-height: 40px;
+  font-size: 18px;
+  justify-content: space-between;
+}
+.item-created {
+  margin-top: 2px;
+  font-size: 12px;
+}

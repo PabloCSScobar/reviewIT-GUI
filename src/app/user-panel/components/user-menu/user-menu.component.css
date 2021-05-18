@@ -1,0 +1,9 @@
+.menu-icon {
+  color: rgb(236, 236, 236);
+  font-size: 18px;
+  position: relative;
+  bottom: 2px;
+}
+a {
+  text-decoration: none;
+}

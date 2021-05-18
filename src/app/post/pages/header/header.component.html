@@ -2,7 +2,12 @@
   <nav>
     <div class="logo">
       <a [routerLink]="['/list']">
-        <h1>Review-<span class="logo-bold">IT</span></h1>
+        <img
+          class="logo-img"
+          src="../../../../assets/logo-small.png"
+          alt=""
+          srcset=""
+        />
       </a>
     </div>
     <ul class="menu">
@@ -10,13 +15,24 @@
       <li class="menu-entry"><a href="#">Regulamin</a></li>
       <li class="menu-entry"><a href="#">Pomoc</a></li>
     </ul>
-    <div class="new-question-wrapper">
+    <div *ngIf="isAuthenticated" class="new-question-wrapper">
       <span class="material-icons question-icon"> post_add </span>
       <div class="ask-question">
         <span><a [routerLink]="['/new-post']">Poproś o recenzję</a></span>
       </div>
     </div>
+    <div *ngIf="!isAuthenticated" class="log-in-wrapper">
+      <span
+        ><a [routerLink]="['/auth/login']">
+          <button mat-raised-button color="accent">
+            Zaloguj się aby dodać post<span class="material-icons log-in-icon">
+              login
+            </span>
+          </button></a
+        ></span
+      >
+    </div>
 
-    <div class="user-info">USER</div>
+    <app-header-container *ngIf="isAuthenticated"></app-header-container>
   </nav>
 </header>

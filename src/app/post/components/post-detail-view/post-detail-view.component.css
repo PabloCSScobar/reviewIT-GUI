@@ -40,7 +40,8 @@
 .project-links-wrapper {
   margin: 10px 0;
 }
-.page-link, .repo-link {
+.page-link,
+.repo-link {
   font-size: 12px;
   color: black;
   padding: 0 5px;
@@ -74,4 +75,24 @@
   align-items: center;
   color: white;
   margin-right: 10px;
+}
+.log-in-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 10px #264653 solid;
+  display: flex;
+  align-items: baseline;
+  justify-content: baseline;
+  padding: 10px;
+  cursor: pointer;
+}
+.log-in-icon {
+  padding-left: 5px;
+}
+.answer-provided-wrapper {
+  font-size: 16px;
+  margin-top: 2px;
+  background: #2a9d8f;
+  padding: 15px;
+  color: white;
 }
