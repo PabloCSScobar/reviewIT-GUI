@@ -33,19 +33,24 @@ export class PostDetailViewComponent implements OnInit {
     );
   }
 
-  get isAuthenticated() {
+  isAuthenticated() {
     return this.authService.isAuthenticated();
   }
 
   isAnswerProvided() {
-    let user = this.userService.user.getValue();
+    let loggedUser = this.userService.user.getValue();
     let answers = this.post.answers.filter(
-      (answer) => answer.author.id == user.id
+      (answer) => answer.author.id == loggedUser.id
     );
     if (answers.length) {
       return true;
     }
     return false;
+  }
+
+  isOwnPost() {
+    let loggedUser = this.userService.user.getValue();
+    return this.post.author.id == loggedUser.id;
   }
 
   ngOnInit(): void {
