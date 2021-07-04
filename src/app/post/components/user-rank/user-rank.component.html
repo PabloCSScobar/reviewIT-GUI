@@ -2,9 +2,9 @@
   <p>Ranking użytkowników</p>
 </div>
 <div class="user-rank-wrapper">
-  <div *ngFor="let user of users" class="user">
-    <span class="rank">{{user.rank}}</span>
-    <span class="username">{{user.user.username}}</span>
-    <span class="reputation">{{user.user.reputation}}</span>
+  <div *ngFor="let user of users; let i = index" class="user">
+    <span class="rank">{{ i }}</span>
+    <span class="username">{{ user.username }}</span>
+    <span class="reputation">{{ user.reputation }}</span>
   </div>
 </div>

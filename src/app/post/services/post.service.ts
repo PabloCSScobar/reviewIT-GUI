@@ -69,7 +69,7 @@ export class PostService {
   }
 
   getTopUsers() {
-    return this.http.get<UserRankNode[]>('./assets/mock_data/top-users.json');
+    return this.http.get<UserRankNode[]>(`${env.apiUrl}/profile/ranking`);
   }
 
   setOrdering(ordering: string) {

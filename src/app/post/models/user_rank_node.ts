@@ -1,6 +1,7 @@
-import { PostUser } from "./post-user";
+import { PostUser } from './post-user';
 
 export interface UserRankNode {
-  rank: number;
-  user: PostUser;
+  id: number;
+  reputation: number;
+  username: string;
 }
