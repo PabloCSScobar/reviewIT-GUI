@@ -10,6 +10,7 @@ import { AuthModule } from './auth/auth.module';
 import { CookieService } from 'ngx-cookie-service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/interceptors/auth.interceptor';
+import { UserPanelModule } from './user-panel/user-panel.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -18,6 +19,7 @@ import { AuthInterceptor } from './auth/interceptors/auth.interceptor';
     PostModule,
     AuthModule,
     SharedModule,
+    UserPanelModule,
     BrowserAnimationsModule,
   ],
   providers: [
