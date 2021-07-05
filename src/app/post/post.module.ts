@@ -27,6 +27,7 @@ import { NewPostComponent } from './components/new-post/new-post.component';
 import { NewAnswerComponent } from './components/new-answer/new-answer.component';
 import { CategoryNodeComponent } from './components/category-node/category-node.component';
 import { UserPanelModule } from '../user-panel/user-panel.module';
+import { AnswerUserComponent } from './components/answer-user/answer-user.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { UserPanelModule } from '../user-panel/user-panel.module';
     NewPostComponent,
     NewAnswerComponent,
     CategoryNodeComponent,
+    AnswerUserComponent,
   ],
   imports: [CommonModule, PostRoutingModule, SharedModule, UserPanelModule],
   exports: [ContainerComponent],
