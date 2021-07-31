@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Answer } from '../../models/answer';
 import { Category } from '../../models/category';
+import { PostDetail } from '../../models/post';
 
 @Component({
   selector: 'app-answer-list',
@@ -9,8 +10,7 @@ import { Category } from '../../models/category';
 })
 export class AnswerListComponent implements OnInit {
   constructor() {}
-  @Input() answers: Answer[];
-  @Input() categories: Category[];
+  @Input() post: PostDetail;
 
   ngOnInit(): void {}
 }

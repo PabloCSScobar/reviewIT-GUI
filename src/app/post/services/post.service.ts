@@ -11,6 +11,8 @@ import { Category } from '../models/category';
 import { Pagination } from '../models/pagination';
 import { Router } from '@angular/router';
 import { Answer } from '../models/answer';
+import { UserService } from 'src/app/user-panel/services/user.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root',
@@ -19,13 +21,22 @@ export class PostService {
   pagination = new BehaviorSubject<Pagination>(null);
   categories = new BehaviorSubject<Category[]>([]);
   posts = new BehaviorSubject<Post[]>([]);
+  currentPost = new BehaviorSubject<PostDetail>(null);
   ordering = 'date'; //default order
   categoryFilter = null;
   searchText;
-  constructor(private http: HttpClient, private router: Router) {}
+
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
   getPost(id) {
-    return this.http.get<PostDetail>(`${env.apiUrl}/posts/${id}`);
+    this.http
+      .get<PostDetail>(`${env.apiUrl}/posts/${id}`)
+      .pipe(tap((res) => this.currentPost.next(res)))
+      .toPromise();
   }
 
   getPosts(page = 1) {
@@ -80,5 +91,19 @@ export class PostService {
   setCategoryFilter(category: string) {
     this.categoryFilter = category;
     this.getPosts();
+  }
+
+  markAnswerAsTop(answer: Answer) {
+    return this.http.put<Answer>(
+      `${env.apiUrl}/answers/${answer.id}/mark_as_top/`,
+      {
+        is_top_answer: true,
+      }
+    );
+  }
+
+  isOwnPost(authorId: number) {
+    let loggedUser = this.userService.user.getValue();
+    return authorId == loggedUser.id;
   }
 }

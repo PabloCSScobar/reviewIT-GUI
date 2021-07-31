@@ -23,10 +23,13 @@ export class PostDetailViewComponent implements OnInit {
   post: PostDetail;
 
   getPost(id: number) {
-    this.postService.getPost(id).subscribe((post) => (this.post = post));
+    this.postService.getPost(id);
   }
 
-  //params['id]
+  updatePostData() {
+    this.postService.currentPost.subscribe((post) => (this.post = post));
+  }
+
   getPostId() {
     this.routeSub = this.route.params.subscribe((params) =>
       this.getPost(params['id'])
@@ -49,11 +52,15 @@ export class PostDetailViewComponent implements OnInit {
   }
 
   isOwnPost() {
-    let loggedUser = this.userService.user.getValue();
-    return this.post.author.id == loggedUser.id;
+    return this.postService.isOwnPost(this.post.author.id);
+  }
+
+  newAnswerCreated() {
+    this.postService.getPost(this.post.id);
   }
 
   ngOnInit(): void {
     this.getPostId();
+    this.updatePostData();
   }
 }

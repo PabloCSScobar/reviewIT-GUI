@@ -8,7 +8,11 @@
     <span class="material-icons top-answer-icon"> done </span>
     <span class="top-answer-label">Najlepsza Recenzja</span>
   </div>
-  <div *ngIf="!isTopAnswer && isOwnPost()" class="top-answer author">
+  <div
+    (click)="markAnswerAsTop()"
+    *ngIf="!isTopAnswer && isOwnPost()"
+    class="top-answer author"
+  >
     <span class="material-icons top-answer-icon disabled author"> done </span>
     <span class="top-answer-label disabled author"
       >Wybierz jako najlepszą odpowiedź</span

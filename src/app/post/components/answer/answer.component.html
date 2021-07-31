@@ -1,11 +1,19 @@
 <div class="answer-wrapper">
   <div class="author-info">
-    <app-post-user [user]="answer.author"></app-post-user>
+    <app-answer-user
+      (topAnswerSet)="markAnswerAsTop()"
+      [user]="answer.author"
+      [isTopAnswer]="answer.is_top_answer"
+      [postAuthor]="post.author"
+    ></app-answer-user>
   </div>
   <div class="answer-details">
     <div class="answer-description">
-      {{answer.description}}
+      {{ answer.description }}
     </div>
-    <app-category-review *ngFor="let category of answer.reviewed_categories" [category]="category"></app-category-review>
+    <app-category-review
+      *ngFor="let category of answer.reviewed_categories"
+      [category]="category"
+    ></app-category-review>
   </div>
 </div>

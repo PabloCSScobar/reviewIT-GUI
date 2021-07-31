@@ -44,10 +44,7 @@
       </div>
     </div>
   </div>
-  <app-answer-list
-    [categories]="post.categories"
-    [answers]="post.answers"
-  ></app-answer-list>
+  <app-answer-list [post]="post"></app-answer-list>
   <div *ngIf="!isAuthenticated">
     <div class="log-in-wrapper">
       <span
@@ -68,6 +65,7 @@
       *ngIf="!isAnswerProvided() && !isOwnPost()"
       [post]="post.id"
       [categories]="post.categories"
+      (created)="newAnswerCreated()"
     ></app-new-answer>
     <div *ngIf="isAnswerProvided()" class="answer-provided-wrapper">
       Dodałeś już swoją recenzję
