@@ -6,9 +6,8 @@ import {
   FormArray,
   Validators,
 } from '@angular/forms';
-import { Answer } from '../../models/answer';
-import { Category } from '../../models/category';
-import { ReviewedCategory } from '../../models/reviewed_category';
+import { Answer } from '@postModels/answer';
+import { Category } from '@postModels/category';
 import { PostService } from '../../services/post.service';
 
 @Component({

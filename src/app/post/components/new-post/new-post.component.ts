@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Category } from '../../models/category';
-import { PostNew } from '../../models/post';
+import { Category } from '@postModels/category';
+import { PostNew } from '@postModels/post';
 import { PostService } from '../../services/post.service';
 
 @Component({

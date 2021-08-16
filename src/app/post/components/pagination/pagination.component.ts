@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pagination } from '../../models/pagination';
+import { Pagination } from '@postModels/pagination';
 import { PostService } from '../../services/post.service';
 import { PageEvent } from '@angular/material/paginator';
 

@@ -2,17 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, pipe } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
-import { Post, PostDetail, PostNew } from '../models/post';
-import { PostUser } from '../models/post-user';
-import { UserRankNode } from '../models/user_rank_node';
+import { Post, PostDetail, PostNew } from '@postModels/post';
+import { PostUser } from '@postModels/post-user';
+import { UserRankNode } from '@postModels/user_rank_node';
 import { environment as env } from '../../../environments/environment';
-import { PostList } from '../models/post_list';
-import { Category } from '../models/category';
-import { Pagination } from '../models/pagination';
+import { PostList } from '@postModels/post_list';
+import { Category } from '@postModels/category';
+import { Pagination } from '@postModels/pagination';
 import { Router } from '@angular/router';
-import { Answer } from '../models/answer';
+import { Answer } from '@postModels/answer';
 import { UserService } from 'src/app/user-panel/services/user.service';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable({
   providedIn: 'root',

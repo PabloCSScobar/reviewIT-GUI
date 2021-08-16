@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Profile } from '../../models/profile';
 import { UserService } from '../../services/user.service';
 
 @Component({

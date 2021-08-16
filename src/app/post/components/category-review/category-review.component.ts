@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ReviewedCategory } from '../../models/reviewed_category';
+import { ReviewedCategory } from '@postModels/reviewed_category';
 
 @Component({
   selector: 'app-category-review',

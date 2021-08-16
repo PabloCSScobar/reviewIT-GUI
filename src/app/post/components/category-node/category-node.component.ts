@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { CategoryNode } from '../../models/reviewed_category';
 
 @Component({
   selector: 'app-category-node',

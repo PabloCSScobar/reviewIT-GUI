@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment as env } from '../../../environments/environment';
-import { Answer } from '../models/answer';
-import { Post } from '../models/post';
-import { Profile } from '../models/profile';
+import { Answer } from '@userModels/answer';
+import { Post } from '@userModels/post';
+import { Profile } from '@userModels/profile';
 
 @Injectable({
   providedIn: 'root',

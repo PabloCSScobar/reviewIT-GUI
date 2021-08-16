@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Answer } from '../../models/answer';
-import { Post } from '../../models/post';
-import { Profile } from '../../models/profile';
+import { Answer } from '@userModels/answer';
+import { Post } from '@userModels/post';
+import { Profile } from '@userModels/profile';
 import { UserService } from '../../services/user.service';
 
 @Component({

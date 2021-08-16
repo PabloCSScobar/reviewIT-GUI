@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PostUser } from '../../models/post-user';
+import { PostUser } from '@postModels/post-user';
 
 @Component({
   selector: 'app-post-user',

@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Answer } from '../../models/answer';
-import { Category } from '../../models/category';
-import { PostDetail } from '../../models/post';
+import { PostDetail } from '@postModels/post';
 
 @Component({
   selector: 'app-answer-list',

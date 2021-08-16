@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { PostUser } from '../../models/post-user';
+import { PostUser } from '@postModels/post-user';
 import { PostService } from '../../services/post.service';
 
 @Component({

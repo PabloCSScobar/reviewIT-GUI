@@ -15,6 +15,10 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@userModels/*": ["./src/app/user-panel/models/*",],
+      "@postModels/*": ["./src/app/post/models/*",],
+    }
   }
 }

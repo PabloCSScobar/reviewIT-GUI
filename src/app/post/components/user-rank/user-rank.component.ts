@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserRankNode } from '../../models/user_rank_node';
+import { UserRankNode } from '@postModels/user_rank_node';
 import { PostService } from '../../services/post.service';
 
 @Component({

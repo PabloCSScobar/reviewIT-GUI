@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Answer } from '../../models/answer';
-import { PostDetail } from '../../models/post';
+import { Answer } from '@postModels/answer';
+import { PostDetail } from '@postModels/post';
 import { PostService } from '../../services/post.service';
 
 @Component({
