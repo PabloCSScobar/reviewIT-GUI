@@ -42,11 +42,11 @@
   font-size: 12px;
 }
 .own-post-answer:hover .top-answer-icon{
-  color: #be44638e;
+  color: #f100008e;
   cursor: pointer;
 }
 .own-post-answer:hover .top-answer-label{
-  color: #be44638e;
+  color: #f100008e;
   cursor: pointer;
 }
 .top-answer {
