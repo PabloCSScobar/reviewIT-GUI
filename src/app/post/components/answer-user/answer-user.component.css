@@ -41,6 +41,14 @@
   font-weight: 500;
   font-size: 12px;
 }
+.own-post-answer:hover .top-answer-icon{
+  color: #be44638e;
+  cursor: pointer;
+}
+.own-post-answer:hover .top-answer-label{
+  color: #be44638e;
+  cursor: pointer;
+}
 .top-answer {
   width: 100%;
   display: flex;

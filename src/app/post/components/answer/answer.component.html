@@ -1,7 +1,7 @@
 <div class="answer-wrapper">
   <div class="author-info">
     <app-answer-user
-      (topAnswerSet)="markAnswerAsTop()"
+      (changeAnswerStatus)="changeAnswerStatus($event)"
       [user]="answer.author"
       [isTopAnswer]="answer.is_top_answer"
       [postAuthor]="post.author"

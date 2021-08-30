@@ -16,9 +16,10 @@ export class AnswerComponent implements OnInit {
   @Input() post: PostDetail;
   ngOnInit(): void {}
 
-  markAnswerAsTop() {
+  changeAnswerStatus(status) {
+    console.log(status);
     this.postService
-      .markAnswerAsTop(this.answer)
-      .subscribe(() => this.router.navigate([`post/${this.post.id}`]));
+      .changeAnswerStatus(status, this.answer.id, this.post.id)
   }
+
 }

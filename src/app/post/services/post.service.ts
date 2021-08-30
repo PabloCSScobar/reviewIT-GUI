@@ -92,13 +92,13 @@ export class PostService {
     this.getPosts();
   }
 
-  markAnswerAsTop(answer: Answer) {
+  changeAnswerStatus(status: boolean, answerId: number, postId: number) {
     return this.http.put<Answer>(
-      `${env.apiUrl}/answers/${answer.id}/mark_as_top/`,
+      `${env.apiUrl}/answers/${answerId}/change_answer_status/`,
       {
-        is_top_answer: true,
+        is_top_answer: status,
       }
-    );
+    ).subscribe(() => this.getPost(postId));
   }
 
   isOwnPost(authorId: number) {

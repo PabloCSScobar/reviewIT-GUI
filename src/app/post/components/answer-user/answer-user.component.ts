@@ -13,14 +13,21 @@ export class AnswerUserComponent implements OnInit {
   @Input() user: PostUser;
   @Input() isTopAnswer: boolean;
   @Input() postAuthor: PostUser;
-  @Output() topAnswerSet = new EventEmitter<boolean>();
+  @Output() changeAnswerStatus = new EventEmitter<boolean>();
 
   isOwnPost() {
     return this.postService.isOwnPost(this.postAuthor.id);
   }
 
   markAnswerAsTop() {
-    this.topAnswerSet.emit(true);
+    this.changeAnswerStatus.emit(true);
   }
+
+  unsetTopAnswer() {
+    if (this.isOwnPost()) {
+      this.changeAnswerStatus.emit(false);
+    }
+  }
+
   ngOnInit(): void {}
 }
