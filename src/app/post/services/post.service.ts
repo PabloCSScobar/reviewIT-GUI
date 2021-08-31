@@ -31,7 +31,7 @@ export class PostService {
     private userService: UserService
   ) {}
 
-  getPost(id) {
+  getPost(id: number) {
     this.http
       .get<PostDetail>(`${env.apiUrl}/posts/${id}`)
       .pipe(tap((res) => this.currentPost.next(res)))
@@ -101,8 +101,15 @@ export class PostService {
     ).subscribe(() => this.getPost(postId));
   }
 
-  isOwnPost(authorId: number) {
+  removeAnswer(answerId: number) {
+    return this.http.delete(
+      `${env.apiUrl}/answers/${answerId}/`
+    ).subscribe(() => this.getPost(this.currentPost.getValue().id));
+  }
+
+  isLoggedUser(authorId: number) {
     let loggedUser = this.userService.user.getValue();
     return authorId == loggedUser.id;
   }
+
 }

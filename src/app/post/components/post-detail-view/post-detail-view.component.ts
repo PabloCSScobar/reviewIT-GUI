@@ -52,7 +52,7 @@ export class PostDetailViewComponent implements OnInit {
   }
 
   isOwnPost() {
-    return this.postService.isOwnPost(this.post.author.id);
+    return this.postService.isLoggedUser(this.post.author.id);
   }
 
   newAnswerCreated() {

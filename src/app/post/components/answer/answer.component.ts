@@ -22,4 +22,11 @@ export class AnswerComponent implements OnInit {
       .changeAnswerStatus(status, this.answer.id, this.post.id)
   }
 
+  removeAnswer() {
+    this.postService.removeAnswer(this.answer.id);
+  }
+
+  isOwnAnswer() {
+    return this.postService.isLoggedUser(this.answer.author.id);
+  }
 }

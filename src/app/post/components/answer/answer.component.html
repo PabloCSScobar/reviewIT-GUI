@@ -16,4 +16,7 @@
       [category]="category"
     ></app-category-review>
   </div>
+  <div *ngIf="isOwnAnswer()" (click)="removeAnswer()" class="remove-answer-button">
+    <span class="material-icons md-24"> remove </span>
+  </div>
 </div>

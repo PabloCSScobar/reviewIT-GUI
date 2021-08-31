@@ -16,7 +16,7 @@ export class AnswerUserComponent implements OnInit {
   @Output() changeAnswerStatus = new EventEmitter<boolean>();
 
   isOwnPost() {
-    return this.postService.isOwnPost(this.postAuthor.id);
+    return this.postService.isLoggedUser(this.postAuthor.id);
   }
 
   markAnswerAsTop() {
