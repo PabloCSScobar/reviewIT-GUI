@@ -32,8 +32,23 @@
 .review-advantages,
 .review-disadvantages {
   margin-left: 3px;
+  margin-bottom: 12px;
 }
 .adv-wrapper {
+  display: flex;
+  margin-bottom: 5px;
+}
+.thumb {
+  margin-right: 10px;
+  margin-top: -4px;
+}
+.thumb-up {
+  color: green;
+}
+.thumb-down {
+  color: red;
+}
+.node-description-wrapper{
   display: flex;
   margin-bottom: 5px;
 }
