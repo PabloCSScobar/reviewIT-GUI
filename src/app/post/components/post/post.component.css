@@ -29,7 +29,9 @@
 .answers {
   border-radius: 5px;
   margin: 0 4px;
-  border: 1px solid #264653;
+}
+.answers.top {
+  border: 2px solid #2a9d8f;
 }
 .av-number {
   font-size: 14px;

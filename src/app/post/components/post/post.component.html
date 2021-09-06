@@ -19,7 +19,7 @@
         <div class="av-number">{{ post.visits }}</div>
         <div class="av-info">wizyty</div>
       </div>
-      <div class="answers">
+      <div class="answers" [ngClass]="{'top': post.has_top_answer}">
         <div class="av-number">{{ post.number_of_answers }}</div>
         <div class="av-info">odpowiedzi</div>
       </div>
