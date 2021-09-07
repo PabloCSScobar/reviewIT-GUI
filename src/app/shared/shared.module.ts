@@ -15,6 +15,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { CutStringPipe } from './pipes/cut-string.pipe';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 @NgModule({
   declarations: [
     TimeAgoPipe,
@@ -35,6 +37,7 @@ import { CutStringPipe } from './pipes/cut-string.pipe';
     ReactiveFormsModule,
     FormsModule,
     MatMenuModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     HttpClientModule,
@@ -51,6 +54,7 @@ import { CutStringPipe } from './pipes/cut-string.pipe';
     ReactiveFormsModule,
     FormsModule,
     MatMenuModule,
+    MatProgressSpinnerModule,
     CutStringPipe,
   ],
 })

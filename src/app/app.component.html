@@ -1,1 +1,4 @@
 <router-outlet></router-outlet>
+<div class="loading-wrapper" *ngIf="loading$ | async">
+  <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+</div>
