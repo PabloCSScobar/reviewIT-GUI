@@ -11,6 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/interceptors/auth.interceptor';
 import { UserPanelModule } from './user-panel/user-panel.module';
+import { LoadingInterceptor } from './post/interceptors/loading.interceptor';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -27,6 +28,11 @@ import { UserPanelModule } from './user-panel/user-panel.module';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
       multi: true,
     },
   ],
