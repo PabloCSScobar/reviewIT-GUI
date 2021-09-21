@@ -7,6 +7,7 @@ import { PostDetailViewComponent } from './components/post-detail-view/post-deta
 import { PostListComponent } from './components/post-list/post-list.component';
 import { ContainerComponent } from './pages/container/container.component';
 import { CategoriesResolver } from './services/categories-resolver';
+import { PostResolver } from './services/post-resolver';
 import { PostsResolver } from './services/posts-resolver';
 
 const routes: Routes = [
@@ -37,6 +38,9 @@ const routes: Routes = [
     path: 'post/:id',
     component: PostDetailViewComponent,
     pathMatch: 'full',
+    resolve: {
+      post: PostResolver,
+    },
   },
   {
     path: 'new-post',

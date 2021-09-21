@@ -65,7 +65,8 @@ export class PostDetailViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getPostId();
+    // this.getPostId();
+    this.post = this.route.snapshot.data['post'];
     this.updatePostData();
     this.checkIfAuthenticated();
     this.checkPostAuthor();
