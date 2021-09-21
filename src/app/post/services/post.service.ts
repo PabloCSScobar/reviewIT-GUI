@@ -109,7 +109,11 @@ export class PostService {
 
   isLoggedUser(authorId: number) {
     let loggedUser = this.userService.user.getValue();
-    return authorId == loggedUser.id;
+    if (loggedUser) {
+      return authorId == loggedUser.id;
+    } else {
+      return false;
+    }
   }
 
 }
