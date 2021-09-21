@@ -14,7 +14,7 @@ export class AnswerComponent implements OnInit {
 
   @Input() answer: Answer;
   @Input() post: PostDetail;
-  ngOnInit(): void {}
+  isOwnAnswer = false;
 
   changeAnswerStatus(status) {
     console.log(status);
@@ -26,7 +26,12 @@ export class AnswerComponent implements OnInit {
     this.postService.removeAnswer(this.answer.id);
   }
 
-  isOwnAnswer() {
-    return this.postService.isLoggedUser(this.answer.author.id);
+  checkAuthor() {
+    this.isOwnAnswer = this.postService.isLoggedUser(this.answer.author.id);
   }
+
+  ngOnInit(): void {
+    this.checkAuthor();
+  }
+
 }
