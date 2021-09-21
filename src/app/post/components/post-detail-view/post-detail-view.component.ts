@@ -21,6 +21,9 @@ export class PostDetailViewComponent implements OnInit {
 
   routeSub: Subscription;
   post: PostDetail;
+  isAuthenticated = false;
+  isOwnPost = false;
+  isAnswerProvided = false;
 
   getPost(id: number) {
     this.postService.getPost(id);
@@ -36,23 +39,25 @@ export class PostDetailViewComponent implements OnInit {
     );
   }
 
-  isAuthenticated() {
-    return this.authService.isAuthenticated();
+  checkIfAuthenticated() {
+    this.isAuthenticated = this.authService.isAuthenticated();
   }
 
-  isAnswerProvided() {
+  checkIfAnswerProvided() {
     let loggedUser = this.userService.user.getValue();
     let answers = this.post.answers.filter(
       (answer) => answer.author.id == loggedUser.id
     );
     if (answers.length) {
-      return true;
+      this.isAnswerProvided = true;
     }
-    return false;
+    this.isAnswerProvided = false;
   }
 
-  isOwnPost() {
-    return this.postService.isLoggedUser(this.post.author.id);
+  checkPostAuthor() {
+    if(this.post) {
+      this.isOwnPost = this.postService.isLoggedUser(this.post.author.id);
+    }
   }
 
   newAnswerCreated() {
@@ -62,5 +67,8 @@ export class PostDetailViewComponent implements OnInit {
   ngOnInit(): void {
     this.getPostId();
     this.updatePostData();
+    this.checkIfAuthenticated();
+    this.checkPostAuthor();
+    this.checkIfAnswerProvided();
   }
 }

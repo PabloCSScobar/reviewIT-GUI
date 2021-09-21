@@ -17,6 +17,7 @@ export class FilterListComponent implements OnInit {
   };
   //set default ordering
   selected_ordering = this.ordering.date;
+  isActive = false;
 
   constructor(private postService: PostService, public router: Router) {}
 
@@ -25,8 +26,5 @@ export class FilterListComponent implements OnInit {
     this.postService.setOrdering(key);
   }
 
-  isActive(key) {
-    return this.selected_ordering == key;
-  }
   ngOnInit(): void {}
 }

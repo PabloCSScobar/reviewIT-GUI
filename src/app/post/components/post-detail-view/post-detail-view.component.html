@@ -60,17 +60,17 @@
       >
     </div>
   </div>
-  <div *ngIf="isAuthenticated()">
+  <div *ngIf="isAuthenticated">
     <app-new-answer
-      *ngIf="!isAnswerProvided() && !isOwnPost()"
+      *ngIf="!isAuthenticated && !isOwnPost"
       [post]="post.id"
       [categories]="post.categories"
-      (created)="newAnswerCreated()"
+      (created)="isAuthenticated"
     ></app-new-answer>
-    <div *ngIf="isAnswerProvided()" class="answer-provided-wrapper">
+    <div *ngIf="isAnswerProvided" class="answer-provided-wrapper">
       Dodałeś już swoją recenzję
     </div>
-    <div *ngIf="isOwnPost()" class="answer-provided-wrapper">
+    <div *ngIf="isOwnPost" class="answer-provided-wrapper">
       Nie możesz ocenić swojego projektu
     </div>
   </div>

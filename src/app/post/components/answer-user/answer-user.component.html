@@ -4,13 +4,13 @@
   </div>
   <div class="username">{{ user.username }}</div>
   <div class="user-reputation">({{ user.reputation }})</div>
-  <div (click)="unsetTopAnswer()" *ngIf="isTopAnswer" class="top-answer" [ngClass]="{'own-post-answer': isOwnPost()}">
+  <div (click)="unsetTopAnswer()" *ngIf="isTopAnswer" class="top-answer" [ngClass]="{'own-post-answer': isOwnPost}">
     <span class="material-icons top-answer-icon" > done </span>
     <span class="top-answer-label" >Najlepsza Recenzja</span>
   </div>
   <div
     (click)="markAnswerAsTop()"
-    *ngIf="!isTopAnswer && isOwnPost()"
+    *ngIf="!isTopAnswer && isOwnPost"
     class="top-answer author"
   >
     <span class="material-icons top-answer-icon disabled author"> done </span>

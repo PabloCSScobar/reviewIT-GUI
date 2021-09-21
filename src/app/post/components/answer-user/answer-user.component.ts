@@ -14,9 +14,10 @@ export class AnswerUserComponent implements OnInit {
   @Input() isTopAnswer: boolean;
   @Input() postAuthor: PostUser;
   @Output() changeAnswerStatus = new EventEmitter<boolean>();
+  isOwnPost = false;
 
-  isOwnPost() {
-    return this.postService.isLoggedUser(this.postAuthor.id);
+  checkPostAuthor() {
+    this.isOwnPost = this.postService.isLoggedUser(this.postAuthor.id);
   }
 
   markAnswerAsTop() {
@@ -24,10 +25,12 @@ export class AnswerUserComponent implements OnInit {
   }
 
   unsetTopAnswer() {
-    if (this.isOwnPost()) {
+    if (this.isOwnPost) {
       this.changeAnswerStatus.emit(false);
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.checkPostAuthor();
+  }
 }
