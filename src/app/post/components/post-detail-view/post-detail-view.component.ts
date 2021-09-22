@@ -30,7 +30,10 @@ export class PostDetailViewComponent implements OnInit {
   }
 
   updatePostData() {
-    this.postService.currentPost.subscribe((post) => (this.post = post));
+    this.postService.currentPost.subscribe((post) => {
+      this.post = post;
+      this.checkIfAnswerProvided();
+    });
   }
 
   getPostId() {
@@ -40,6 +43,7 @@ export class PostDetailViewComponent implements OnInit {
   }
 
   checkIfAuthenticated() {
+    console.debug('User authenticated: ', this.authService.isAuthenticated())
     this.isAuthenticated = this.authService.isAuthenticated();
   }
 
@@ -48,16 +52,13 @@ export class PostDetailViewComponent implements OnInit {
     let answers = this.post.answers.filter(
       (answer) => answer.author.id == loggedUser.id
     );
-    if (answers.length) {
-      this.isAnswerProvided = true;
-    }
-    this.isAnswerProvided = false;
+    this.isAnswerProvided = answers.length > 0;
+    console.debug('Is answer provided:', this.isAnswerProvided)
   }
 
   checkPostAuthor() {
-    if(this.post) {
-      this.isOwnPost = this.postService.isLoggedUser(this.post.author.id);
-    }
+    this.isOwnPost = this.postService.isLoggedUser(this.post.author.id);
+    console.debug('Is own post', this.isOwnPost);
   }
 
   newAnswerCreated() {
@@ -65,11 +66,10 @@ export class PostDetailViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.getPostId();
     this.post = this.route.snapshot.data['post'];
+    console.debug('Opening post details...', this.post)
     this.updatePostData();
     this.checkIfAuthenticated();
     this.checkPostAuthor();
-    this.checkIfAnswerProvided();
   }
 }

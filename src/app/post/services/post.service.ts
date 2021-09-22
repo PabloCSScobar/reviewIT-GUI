@@ -32,10 +32,9 @@ export class PostService {
   ) {}
 
   getPost(id: number) {
-    this.http
+    return this.http
       .get<PostDetail>(`${env.apiUrl}/posts/${id}`)
-      .pipe(tap((res) => this.currentPost.next(res)))
-      .toPromise();
+      .pipe(tap((res) => this.currentPost.next(res))).toPromise();
   }
 
   getPosts(page = 1) {

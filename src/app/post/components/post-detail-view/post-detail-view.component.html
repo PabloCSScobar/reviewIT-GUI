@@ -60,10 +60,10 @@
   </div>
   <div *ngIf="isAuthenticated">
     <app-new-answer
-      *ngIf="!isAuthenticated && !isOwnPost"
+      *ngIf="!isAnswerProvided && !isOwnPost"
       [post]="post.id"
       [categories]="post.categories"
-      (created)="isAuthenticated"
+      (created)="newAnswerCreated()"
     ></app-new-answer>
     <div *ngIf="isAnswerProvided" class="answer-provided-wrapper">
       Dodałeś już swoją recenzję
