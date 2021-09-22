@@ -18,7 +18,6 @@ export class StarRatingComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this.img_x)
   }
 
 }
