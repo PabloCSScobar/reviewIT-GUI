@@ -30,9 +30,6 @@ const routes: Routes = [
     path: 'post',
     redirectTo: '/list',
     pathMatch: 'full',
-    resolve: {
-      posts: PostsResolver,
-    },
   },
   {
     path: 'post/:id',
@@ -40,6 +37,7 @@ const routes: Routes = [
     pathMatch: 'full',
     resolve: {
       post: PostResolver,
+      user: userResolver
     },
   },
   {
