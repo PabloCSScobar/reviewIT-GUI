@@ -14,7 +14,8 @@
       <app-star-rating
         [rank]="post.rank"
       ></app-star-rating>
-      <div class="rank">Ocena ogólna: {{ post.rank }}</div>
+      <div *ngIf="post.rank" class="rank">Ocena ogólna: {{ post.rank | number: "1.0-2" }}</div>
+      <div *ngIf="!post.rank" class="rank">Brak ocen</div>
     </div>
   </div>
   <div class="post-wrapper">
