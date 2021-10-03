@@ -4,8 +4,7 @@ header {
   width: 100%;
 }
 nav {
-  width: 1024px;
-  /* height: 100%; */
+  max-width: 1024px;
   margin: 0 auto;
   display: flex;
   padding-top: 5px;
@@ -13,7 +12,9 @@ nav {
 }
 
 .logo {
+  margin-left: 3px;
   padding: 0 2px;
+  flex-grow: 1;
 }
 .logo a {
   text-decoration: none;
@@ -29,8 +30,8 @@ nav {
   font-weight: 500;
 }
 .menu {
+  display: none;
   flex-grow: 1;
-  display: flex;
   margin-left: 80px;
 }
 .menu-entry a {
@@ -53,14 +54,14 @@ nav {
   display: flex;
   align-items: baseline;
   justify-content: baseline;
-  margin-right: 20px;
-  padding: 10px;
+  margin-right: 5px;
+  padding: 5px 10px;
   cursor: pointer;
 }
 
 .ask-question,
 .log-in {
-  display: flex;
+  display: none;
   margin-left: 10px;
   vertical-align: 1px;
 }
@@ -87,4 +88,26 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.ask-question {
+  display: none;
+}
+
+
+@media screen and (min-width: 800px) {
+  .menu {
+    display: flex;
+  }
+  .ask-question,
+  .log-in {
+    display: flex;
+  }
+  .new-question-wrapper,
+  .log-in-wrapper {
+    margin-right: 20px;
+    padding: 10px;
+  }
+  .logo {
+    flex-grow: 0;
+  }
 }

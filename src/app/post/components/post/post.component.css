@@ -18,6 +18,9 @@
   display: flex;
   justify-content: space-between;
 }
+.project-links-wrapper{
+  display: none;
+}
 .views,
 .answers {
   display: flex;
@@ -58,11 +61,16 @@
 .post-details {
   width: 100%;
   padding: 3px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .post-tags {
   display: flex;
+  flex-wrap: wrap;
 }
 .post-tag {
+  margin-bottom: 2px;
   font-size: 12px;
   border-radius: 4px;
   padding: 2px 5px;
@@ -107,6 +115,7 @@
   font-size: 11px;
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 3px;
 }
 .activity-type,
 .activity-time,

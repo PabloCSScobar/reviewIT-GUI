@@ -10,6 +10,7 @@ export class UserMenuComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   logout() {
+    console.debug('logout');
     this.authService.logout();
   }
 

@@ -11,4 +11,13 @@
   font-weight: 300;
   color: rgb(236, 236, 236);
   margin-left: 10px;
+  display: none;
+}
+
+
+
+@media screen and (min-width: 400px) {
+  .username {
+    display: inline-block;
+  }
 }

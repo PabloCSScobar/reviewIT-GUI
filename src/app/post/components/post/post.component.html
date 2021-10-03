@@ -37,21 +37,23 @@
         <a class="project-link" href="#">{{ post.repo_link }}</a>
       </div>
     </div>
-    <div class="post-last-activity">
-      <div *ngIf="post.last_activity">
-        <span class="activity-type">Odpowiedź </span>udzielona
-        <span class="activity-time"
-          >{{ post.last_activity.created | timeAgo }}
-        </span>
-        przez
-        <span class="activity-user">{{ post.last_activity.author }}</span>
+    <div>
+      <div class="post-last-activity">
+        <div *ngIf="post.last_activity">
+          <span class="activity-type">Odpowiedź </span>udzielona
+          <span class="activity-time"
+            >{{ post.last_activity.created | timeAgo }}
+          </span>
+          przez
+          <span class="activity-user">{{ post.last_activity.author }}</span>
+        </div>
+        <div *ngIf="!post.last_activity">Brak odpowiedzi.</div>
       </div>
-      <div *ngIf="!post.last_activity">Brak odpowiedzi.</div>
-    </div>
-    <div class="post-tags">
-      <div *ngFor="let category of post.categories" class="post-tag">
-        {{ category.name }}
+      <div class="post-tags">
+        <div *ngFor="let category of post.categories" class="post-tag">
+          {{ category.name }}
+        </div>
       </div>
     </div>
-  </div>
+    </div>
 </div>
