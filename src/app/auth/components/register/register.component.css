@@ -1,5 +1,6 @@
 .register-form {
-  width: 70%;
+  width: 90%;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
 }
@@ -21,5 +22,6 @@
   color: #06ccb5;
 }
 .login-errors {
-  width: 70%;
+  width: 90%;
+  /* max-width: 500px; */
 }

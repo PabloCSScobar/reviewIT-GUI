@@ -1,5 +1,6 @@
 .login-form {
-  width: 70%;
+  width: 90%;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
 }
@@ -21,11 +22,13 @@
   color: #06ccb5;
 }
 .welcome-message {
-  width: 70%;
+  width: 90%;
+  max-width: 500px;
   margin-bottom: 1.5rem;
   font-size: 1.7rem;
   font-weight: 500;
 }
 .login-errors {
-  width: 70%;
+  width: 90%;
+  max-width: 500px;
 }
