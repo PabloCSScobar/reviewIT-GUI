@@ -55,7 +55,7 @@ nav {
   align-items: baseline;
   justify-content: baseline;
   margin-right: 5px;
-  padding: 5px 10px;
+  padding: 2px;
   cursor: pointer;
 }
 
@@ -65,7 +65,7 @@ nav {
   margin-left: 10px;
   vertical-align: 1px;
 }
-.ask-question > span > a {
+.ask-question > span {
   text-decoration: none;
   color: #f4a261;
 }
@@ -89,15 +89,22 @@ nav {
   align-items: center;
   justify-content: center;
 }
-.ask-question {
+.ask-question, .login-additional-info, .login-info {
   display: none;
 }
 
+@media screen and (min-width: 420px) {
+  .login-info{
+    display: inline-block;
+  }
+
+}
 
 @media screen and (min-width: 800px) {
   .menu {
     display: flex;
   }
+
   .ask-question,
   .log-in {
     display: flex;
@@ -109,5 +116,8 @@ nav {
   }
   .logo {
     flex-grow: 0;
+  }
+  .login-additional-info {
+    display: inline-block;
   }
 }

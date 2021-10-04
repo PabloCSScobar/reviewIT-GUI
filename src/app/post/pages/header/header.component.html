@@ -13,9 +13,12 @@
     <ul class="menu">
       <li class="menu-entry"><a href="#">O serwisie</a></li>
       <li class="menu-entry"><a href="#">Regulamin</a></li>
-      <li class="menu-entry"><a href="#">Pomoc</a></li>
     </ul>
-    <div [routerLink]="['/new-post']" *ngIf="isAuthenticated" class="new-question-wrapper">
+    <div
+      [routerLink]="['/new-post']"
+      *ngIf="isAuthenticated"
+      class="new-question-wrapper"
+    >
       <span class="material-icons question-icon"> post_add </span>
       <div class="ask-question">
         <span>Poproś o recenzję</span>
@@ -25,9 +28,12 @@
       <span
         ><a [routerLink]="['/auth/login']">
           <button mat-raised-button color="accent">
-            Zaloguj się aby dodać post<span class="material-icons log-in-icon">
-              login
+            <span class="login-info">
+              Zaloguj się
+              <span class="login-additional-info"> aby dodać post</span>
             </span>
+              <span class="material-icons log-in-icon"> login </span>
+
           </button></a
         ></span
       >
