@@ -1,8 +1,8 @@
-:host {
-  padding: 10px;
+.wrapper {
+  padding: 0 10px;
 }
 .reputation-header {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 h2 {
   font-size: 28px;

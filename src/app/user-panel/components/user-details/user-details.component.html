@@ -1,66 +1,68 @@
-<h2>Aktywność konta</h2>
-<h3 class="reputation-header">
-  Punkty reputacji:
-  <span *ngIf="user$ != null">{{ (user$ | async).reputation }}</span>
-</h3>
+<div class="wrapper">
+  <h2>Aktywność konta</h2>
+  <h3 class="reputation-header">
+    Punkty reputacji:
+    <span *ngIf="user$ != null">{{ (user$ | async).reputation }}</span>
+  </h3>
 
-<h3>Utworzone posty</h3>
-<ul>
-  <li class="post-item" *ngFor="let post of posts$ | async">
-    <div>
-      <a class="post-link" [routerLink]="['/post/', post.id]">{{
-        post.title | cutString: "25"
-      }}</a>
-      <p class="item-created">
-        Stworzono: {{ post.created | date: "d-MM-yyyy hh:mm" }}
-      </p>
-    </div>
-    <app-star-rating [rank]="post.rank"></app-star-rating>
-  </li>
-</ul>
-<div *ngIf="(posts$ | async).length == 0">Brak postów</div>
-<h3>Dodane recenzje</h3>
-<ul>
-  <li class="post-item" *ngFor="let answer of answers$ | async">
-    <div>
-      <a class="post-link" [routerLink]="['/post/', answer.post]">{{
-        answer.description | cutString: "25"
-      }}</a>
-      <p class="item-created">
-        Stworzono: {{ answer.created | date: "d-MM-yyyy hh:mm" }}
-      </p>
-    </div>
-    <app-star-rating
-      *ngIf="answer.rank && answer.rank > 0"
-      [rank]="answer.rank"
-    ></app-star-rating>
-    <p class="no-rank" *ngIf="answer.rank == null || answer.rank == 0">
-      Brak oceny
-    </p>
-  </li>
-</ul>
-<div *ngIf="(answers$ | async).length == 0">Brak recenzji</div>
-<ng-container *ngIf="(answers$ | async).length > 0">
-  <h3>Recenzje oznaczone jako najlepsze</h3>
+  <h3>Utworzone posty</h3>
   <ul>
-    <ng-container *ngFor="let answer of answers$ | async">
-      <li class="post-item" *ngIf="answer.is_top_answer">
-        <div>
-          <a class="post-link" [routerLink]="['/post/', answer.post]">{{
-            answer.description | cutString: "25"
-          }}</a>
-          <p class="item-created">
-            Stworzono: {{ answer.created | date: "d-MM-yyyy hh:mm" }}
-          </p>
-        </div>
-        <app-star-rating
-          *ngIf="answer.rank && answer.rank > 0"
-          [rank]="answer.rank"
-        ></app-star-rating>
-        <p class="no-rank" *ngIf="answer.rank == null || answer.rank == 0">
-          Brak oceny
+    <li class="post-item" *ngFor="let post of posts$ | async">
+      <div>
+        <a class="post-link" [routerLink]="['/post/', post.id]">{{
+          post.title | cutString: "25"
+        }}</a>
+        <p class="item-created">
+          Stworzono: {{ post.created | date: "d-MM-yyyy hh:mm" }}
         </p>
-      </li>
-    </ng-container>
+      </div>
+      <app-star-rating [rank]="post.rank"></app-star-rating>
+    </li>
   </ul>
-</ng-container>
+  <div *ngIf="(posts$ | async).length == 0">Brak postów</div>
+  <h3>Dodane recenzje</h3>
+  <ul>
+    <li class="post-item" *ngFor="let answer of answers$ | async">
+      <div>
+        <a class="post-link" [routerLink]="['/post/', answer.post]">{{
+          answer.description | cutString: "25"
+        }}</a>
+        <p class="item-created">
+          Stworzono: {{ answer.created | date: "d-MM-yyyy hh:mm" }}
+        </p>
+      </div>
+      <app-star-rating
+        *ngIf="answer.rank && answer.rank > 0"
+        [rank]="answer.rank"
+      ></app-star-rating>
+      <p class="no-rank" *ngIf="answer.rank == null || answer.rank == 0">
+        Brak oceny
+      </p>
+    </li>
+  </ul>
+  <div *ngIf="(answers$ | async).length == 0">Brak recenzji</div>
+  <ng-container *ngIf="(answers$ | async).length > 0">
+    <h3>Recenzje oznaczone jako najlepsze</h3>
+    <ul>
+      <ng-container *ngFor="let answer of answers$ | async">
+        <li class="post-item" *ngIf="answer.is_top_answer">
+          <div>
+            <a class="post-link" [routerLink]="['/post/', answer.post]">{{
+              answer.description | cutString: "25"
+            }}</a>
+            <p class="item-created">
+              Stworzono: {{ answer.created | date: "d-MM-yyyy hh:mm" }}
+            </p>
+          </div>
+          <app-star-rating
+            *ngIf="answer.rank && answer.rank > 0"
+            [rank]="answer.rank"
+          ></app-star-rating>
+          <p class="no-rank" *ngIf="answer.rank == null || answer.rank == 0">
+            Brak oceny
+          </p>
+        </li>
+      </ng-container>
+    </ul>
+  </ng-container>
+</div>
