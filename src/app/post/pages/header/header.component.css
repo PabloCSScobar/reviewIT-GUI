@@ -35,7 +35,7 @@ nav {
   margin-left: 80px;
 }
 .menu-entry a {
-  margin-right: 50px;
+  margin-right: 10px;
   text-decoration: none;
   color: white;
   font-weight: 300;
@@ -89,22 +89,25 @@ nav {
   align-items: center;
   justify-content: center;
 }
-.ask-question, .login-additional-info, .login-info {
+.ask-question,
+.login-additional-info,
+.login-info {
   display: none;
 }
 
 @media screen and (min-width: 420px) {
-  .login-info{
+  .login-info {
     display: inline-block;
   }
-
 }
 
 @media screen and (min-width: 800px) {
   .menu {
     display: flex;
   }
-
+  .menu-entry {
+    margin-right: 20px;
+  }
   .ask-question,
   .log-in {
     display: flex;
