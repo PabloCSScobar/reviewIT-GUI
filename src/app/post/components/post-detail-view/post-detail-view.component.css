@@ -65,6 +65,7 @@
 .post-tags {
   margin: 15px 5px;
   display: flex;
+  flex-wrap: wrap;
 }
 .post-tag {
   font-size: 12px;
@@ -95,4 +96,13 @@
   background: #2a9d8f;
   padding: 15px;
   color: white;
+}
+.star-rating {
+  display: none;
+}
+
+@media screen and (min-width: 340px) {
+  .star-rating {
+    display: block;
+  }
 }

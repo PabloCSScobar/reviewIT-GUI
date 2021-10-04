@@ -7,14 +7,13 @@
       <div class="author-activity-details">
         Pytanie zadane
         <span class="activity-time">{{ post.created | timeAgo }}</span>
-        temu
       </div>
     </div>
     <div class="project-rank-wrapper">
-      <app-star-rating
-        [rank]="post.rank"
-      ></app-star-rating>
-      <div *ngIf="post.rank" class="rank">Ocena ogólna: {{ post.rank | number: "1.0-2" }}</div>
+      <app-star-rating class="star-rating" [rank]="post.rank"></app-star-rating>
+      <div *ngIf="post.rank" class="rank">
+        Ocena ogólna: {{ post.rank | number: "1.0-2" }}
+      </div>
       <div *ngIf="!post.rank" class="rank">Brak ocen</div>
     </div>
   </div>

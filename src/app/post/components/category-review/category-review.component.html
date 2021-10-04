@@ -2,6 +2,7 @@
   <h4>{{ category.category.name }}</h4>
   <div class="rank-wrapper">
     <app-star-rating
+      class="star-rating"
       [rank]="category.rank"
     ></app-star-rating>
     <div class="rank">Ocena: {{ category.rank }}</div>
@@ -9,7 +10,10 @@
 </div>
 <div class="review-advantages">
   <div *ngFor="let node of category.category_nodes" class="adv-wrapper">
-    <ng-container class="node-description-wrapper" *ngIf="node.answer_type == 'advantage'">
+    <ng-container
+      class="node-description-wrapper"
+      *ngIf="node.answer_type == 'advantage'"
+    >
       <span class="material-icons thumb thumb-up">thumb_up</span>
       <p>{{ node.description }}</p>
     </ng-container>
@@ -17,7 +21,10 @@
 </div>
 <div class="review-disadvantages">
   <div *ngFor="let node of category.category_nodes" class="adv-wrapper">
-    <ng-container class="node-description-wrapper" *ngIf="node.answer_type == 'disadvantage'">
+    <ng-container
+      class="node-description-wrapper"
+      *ngIf="node.answer_type == 'disadvantage'"
+    >
       <span class="material-icons thumb thumb-down">thumb_down</span>
       <p>{{ node.description }}</p>
     </ng-container>
