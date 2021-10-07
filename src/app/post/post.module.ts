@@ -28,6 +28,7 @@ import { NewAnswerComponent } from './components/new-answer/new-answer.component
 import { CategoryNodeComponent } from './components/category-node/category-node.component';
 import { UserPanelModule } from '../user-panel/user-panel.module';
 import { AnswerUserComponent } from './components/answer-user/answer-user.component';
+import { SidenavFilterComponent } from './components/sidenav-filter/sidenav-filter.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { AnswerUserComponent } from './components/answer-user/answer-user.compon
     NewAnswerComponent,
     CategoryNodeComponent,
     AnswerUserComponent,
+    SidenavFilterComponent,
   ],
   imports: [CommonModule, PostRoutingModule, SharedModule, UserPanelModule],
   exports: [ContainerComponent],

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
   constructor(private authService: AuthService) {}
+
+  @Input() sidenav;
 
   get isAuthenticated() {
     return this.authService.isAuthenticated();

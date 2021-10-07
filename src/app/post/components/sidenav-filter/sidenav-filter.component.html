@@ -1,0 +1,37 @@
+<div class="container">
+  <div
+    [ngClass]="{ active: ordering.date == selected_ordering }"
+    (click)="setSorting(ordering.date)"
+    class="filter active"
+  >
+    Najnowsze
+  </div>
+  <div
+    [ngClass]="{ active: ordering.rank == selected_ordering }"
+    (click)="setSorting(ordering.rank)"
+    class="filter"
+  >
+    Najwyższa ocena
+  </div>
+  <div
+    [ngClass]="{ active: ordering.visits == selected_ordering }"
+    (click)="setSorting(ordering.visits)"
+    class="filter"
+  >
+    Najwięcej odwiedzin
+  </div>
+  <div
+    [ngClass]="{ active: ordering.answers == selected_ordering }"
+    (click)="setSorting(ordering.answers)"
+    class="filter"
+  >
+    Najwięcej odpowiedzi
+  </div>
+  <div
+    [ngClass]="{ active: ordering.posts_with_no_answer == selected_ordering }"
+    (click)="setSorting(ordering.posts_with_no_answer)"
+    class="filter"
+  >
+    Bez odpowiedzi
+  </div>
+</div>

@@ -1,5 +1,8 @@
 <header>
   <nav>
+    <button mat-button (click)="sidenav.toggle()" color="accent">
+      <mat-icon>menu</mat-icon>
+    </button>
     <div class="logo">
       <a [routerLink]="['/list']">
         <img
@@ -25,17 +28,14 @@
       </div>
     </div>
     <div *ngIf="!isAuthenticated" class="log-in-wrapper">
-      <span
-        ><a [routerLink]="['/auth/login']">
-          <button mat-raised-button color="accent">
-            <span class="login-info">
-              Zaloguj się
-              <span class="login-additional-info"> aby dodać post</span>
-            </span>
-              <span class="material-icons log-in-icon"> login </span>
-
-          </button></a
-        ></span
+      <a [routerLink]="['/auth/login']">
+        <button mat-raised-button color="accent">
+          <span class="login-info">
+            Zaloguj się
+            <span class="login-additional-info"> aby dodać post</span>
+          </span>
+          <span class="material-icons log-in-icon"> login </span>
+        </button></a
       >
     </div>
 
