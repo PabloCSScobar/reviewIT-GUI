@@ -4,6 +4,9 @@ header {
   background-color: #264653;
   width: 100%;
 }
+.menu-button {
+  display: inline-block;
+}
 nav {
   max-width: 1024px;
   margin: 0 auto;
@@ -110,6 +113,9 @@ nav {
 }
 
 @media screen and (min-width: 800px) {
+  .menu-button {
+    display: none;
+  }
   .menu {
     display: flex;
   }
