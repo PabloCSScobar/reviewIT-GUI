@@ -1,0 +1,18 @@
+<div class="side-wrapper">
+  <div
+    (click)="sidenav.toggle()"
+    [routerLink]="['/new-post']"
+    *ngIf="isAuthenticated"
+    class="new-question-wrapper"
+  >
+    <span class="material-icons question-icon"> post_add </span>
+    <div class="ask-question">
+      <span>Poproś o recenzję</span>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <p>Post Filters</p>
+  <app-sidenav-filter></app-sidenav-filter>
+  <p>Post Categories</p>
+  <app-sidenav-categories></app-sidenav-categories>
+</div>

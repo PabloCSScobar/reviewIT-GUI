@@ -1,0 +1,30 @@
+.side-wrapper p {
+  margin-top: 10px;
+  background-color: #223f4c;
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 5px 10px;
+}
+.new-question-wrapper {
+  background-color: #223f4c;
+  display: flex;
+  align-items: baseline;
+  justify-content: baseline;
+  cursor: pointer;
+  padding: 20px 0 15px 10px;
+}
+.ask-question > span {
+  text-decoration: none;
+  color: #f4a261;
+}
+.ask-question {
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+}
+.question-icon {
+  position: relative;
+  top: 6px;
+  color: #f4a261;
+}
