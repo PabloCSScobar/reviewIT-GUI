@@ -31,5 +31,9 @@ export class CategoriesComponent implements OnInit {
     return category == this.current_filter;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.postService.categoryFilter.subscribe(
+      (filter) => (this.current_filter = filter)
+    );
+  }
 }

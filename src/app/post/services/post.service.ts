@@ -22,7 +22,9 @@ export class PostService {
   posts = new BehaviorSubject<Post[]>([]);
   currentPost = new BehaviorSubject<PostDetail>(null);
   ordering = 'date'; //default order
-  categoryFilter = null;
+  private _categoryFilter = null;
+  categoryFilter = new BehaviorSubject<string>(null);
+
   searchText;
 
   constructor(
@@ -34,7 +36,8 @@ export class PostService {
   getPost(id: number) {
     return this.http
       .get<PostDetail>(`${env.apiUrl}/posts/${id}`)
-      .pipe(tap((res) => this.currentPost.next(res))).toPromise();
+      .pipe(tap((res) => this.currentPost.next(res)))
+      .toPromise();
   }
 
   getPosts(page = 1) {
@@ -43,7 +46,7 @@ export class PostService {
         params: {
           page: `${page}`,
           ordering: this.ordering,
-          ...(this.categoryFilter && { category: this.categoryFilter }), //add category param only if categoryFilter !=null
+          ...(this._categoryFilter && { category: this._categoryFilter }), //add category param only if categoryFilter !=null
           ...(this.searchText &&
             this.searchText != '' && { search: this.searchText }), //add searchtext param only if search !=null and not empty
         },
@@ -87,23 +90,23 @@ export class PostService {
   }
 
   setCategoryFilter(category: string) {
-    this.categoryFilter = category;
+    this._categoryFilter = category;
+    this.categoryFilter.next(category);
     this.getPosts();
   }
 
   changeAnswerStatus(status: boolean, answerId: number, postId: number) {
-    return this.http.put<Answer>(
-      `${env.apiUrl}/answers/${answerId}/change_answer_status/`,
-      {
+    return this.http
+      .put<Answer>(`${env.apiUrl}/answers/${answerId}/change_answer_status/`, {
         is_top_answer: status,
-      }
-    ).subscribe(() => this.getPost(postId));
+      })
+      .subscribe(() => this.getPost(postId));
   }
 
   removeAnswer(answerId: number) {
-    return this.http.delete(
-      `${env.apiUrl}/answers/${answerId}/`
-    ).subscribe(() => this.getPost(this.currentPost.getValue().id));
+    return this.http
+      .delete(`${env.apiUrl}/answers/${answerId}/`)
+      .subscribe(() => this.getPost(this.currentPost.getValue().id));
   }
 
   isLoggedUser(authorId: number) {
@@ -114,5 +117,4 @@ export class PostService {
       return false;
     }
   }
-
 }
