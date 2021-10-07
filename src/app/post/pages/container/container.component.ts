@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./container.component.css'],
 })
 export class ContainerComponent implements OnInit {
-  opened = true;
+  sideNavOpened = true;
   constructor() {}
 
   ngOnInit(): void {}

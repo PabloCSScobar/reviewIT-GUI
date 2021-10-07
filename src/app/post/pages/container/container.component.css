@@ -3,13 +3,6 @@
   margin: 15px auto;
   min-height: 100vh;
 }
-.side-wrapper p {
-  background-color: #223f4c;
-  color: white;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 5px 10px;
-}
 .main-wrapper {
   width: 100%;
   display: flex;

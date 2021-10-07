@@ -1,9 +1,6 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="over" [(opened)]="opened">
-    <div class="side-wrapper">
-      <p>Post Filters</p>
-      <app-sidenav-filter></app-sidenav-filter>
-    </div>
+  <mat-sidenav #sidenav mode="over" [(opened)]="sideNavOpened">
+    <app-sidenav [sidenav]="sidenav"></app-sidenav>
   </mat-sidenav>
 
   <mat-sidenav-content>

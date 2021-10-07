@@ -8,8 +8,8 @@
 .filter {
   width: 100%;
   align-self: flex-start;
-  padding: 6px;
-  margin: 5px 10px;
+  padding: 4px;
+  margin: 3px 20px 3px;
   border-radius: 9px;
   cursor: pointer;
 }
