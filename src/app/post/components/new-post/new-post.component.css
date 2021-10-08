@@ -1,6 +1,6 @@
 .new-post-form-wrapper {
   width: 100%;
-  padding: 20px;
+  padding: 0 20px;
 }
 .category-option-node {
   display: flex;
@@ -21,4 +21,14 @@
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+}
+.return-wrapper {
+  padding: 5px 0;
+}
+.new-post-label {
+  padding: 0 20px;
+  margin-top: 10px;
+  color: #2a9d8f;
+  font-weight: 500;
+  font-size: 18px;
 }
