@@ -15,8 +15,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { CutStringPipe } from './pipes/cut-string.pipe';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MtxLoaderModule } from '@ng-matero/extensions/loader';
 
 @NgModule({
   declarations: [
@@ -38,8 +38,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     ReactiveFormsModule,
     FormsModule,
     MatMenuModule,
-    MatProgressSpinnerModule,
     MatSidenavModule,
+    MtxLoaderModule,
   ],
   exports: [
     HttpClientModule,
@@ -56,9 +56,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     ReactiveFormsModule,
     FormsModule,
     MatMenuModule,
-    MatProgressSpinnerModule,
     CutStringPipe,
     MatSidenavModule,
+    MtxLoaderModule,
   ],
 })
 export class SharedModule {}

@@ -1,4 +1,8 @@
-<div class="loading-wrapper" *ngIf="loading$ | async">
-  <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
-</div>
-<router-outlet></router-outlet>
+<mtx-loader
+  [loading]="loading"
+  type="spinner"
+  color="primary"
+  [hasBackdrop]="true"
+>
+  <router-outlet></router-outlet>
+</mtx-loader>
